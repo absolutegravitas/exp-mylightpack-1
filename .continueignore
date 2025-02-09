@@ -1,0 +1,6 @@
+.vscode/
+.git/
+.github/
+.turbo/
+.continuerules
+node_modules
