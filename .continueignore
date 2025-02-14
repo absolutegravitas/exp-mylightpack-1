@@ -4,3 +4,4 @@
 .turbo/
 .continuerules
 node_modules
+node-compile-cache
