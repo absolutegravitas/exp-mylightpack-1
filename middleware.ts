@@ -1,5 +1,8 @@
 // import { clerkMiddleware } from "@clerk/nextjs/server"
 
+export default function mock() {
+   console.log('mock middleware coz clerk breaks build')
+  }
 // export default clerkMiddleware()
 
 // export const config = {
