@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env FORCE_COLOR=1 next dev",
-    "devslow": "cross-env NODE_ENV=development HOSTNAME=localhost FORCE_COLOR=1 next dev --hostname localhost",
+    "dev": "cross-env FORCE_COLOR=1 next dev --turbo",
+    "devtab": "cross-env NODE_ENV=development HOSTNAME=localhost FORCE_COLOR=1 next dev --hostname localhost",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
