@@ -43,7 +43,13 @@
 - tested running build client side
 - SERVER SIDE RUNS ON SAME PORT CLEARLY WRONG SO NEEd TO FIX LATER
 
-- remove storybook
+17-Feb
+- added journal.md to repo
+- added basic dexieClient and upstashClient
+- created schema v1 DBML located in /schema
+
+LATER
+
 - finalise versions of mylightpack schema
 - basic screenshots and image
 - basic waitlist page copy - checkout resend / new.email for inspiration
@@ -51,8 +57,7 @@
 - setup waitlist page
 - setup promoted posts and SEO tuning
 - setup posthog experiments for landing page
-
-LATER
+- use v0 or bolt.diy to duplicate montec website for this saas
 
 - setup dexie
 - clean up project schedule / issues on github
