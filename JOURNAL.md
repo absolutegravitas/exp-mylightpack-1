@@ -46,7 +46,7 @@
 17-Feb
 - added journal.md to repo
 - added basic dexieClient and upstashClient
-- created schema v1 DBML located in /schema
+- created schema v1 and v2 DBML located in /schema
 
 LATER
 
