@@ -1,0 +1,109 @@
+Table users {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name text [not null]
+  email text [not null, unique]
+
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+  status user_status [default: 'waitlist_pending']
+  waitlist_signup_date timestamp [default: `now()`]
+}
+
+Enum user_status {
+  waitlist_pending // requested initial email
+  waitlist_confirmed // clicked double optin email 
+  active // paying customer
+  inactive // former paying customer
+}
+
+Table items {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name text [not null]
+  user_id uuid [ref: > users.id, note: 'ON DELETE CASCADE']
+  brand text
+  
+  quantity integer [not null, default: 1]
+  weight float
+  price decimal(10,2)
+  category text [not null]
+
+  consumable boolean [default: false]
+  status item_status [not null, default: 'active']
+
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+}
+
+
+Enum item_status {
+  active
+  draft
+  inactive
+}
+
+
+Table lists {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name text [not null]
+  //description text
+  user_id uuid [ref: > users.id, note: 'ON DELETE CASCADE']
+//  parent_list_id uuid [ref: > lists.id, note: 'ON DELETE CASCADE']
+  //is_group_list boolean [not null, default: false]
+  //visibility text [not null, default: 'private']
+  status list_status [not null, default: 'active']
+  current_version integer [not null, default: 1]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+ // indexes {
+   // (parent_list_id, is_group_list)
+  //}
+  Note: 'Represents both individual lists and group lists. parent_list_id allows for one-level hierarchical structure.'
+}
+
+Enum list_status {
+  active
+  draft
+  inactive
+}
+
+Table categories {
+  id uuid [pk, default: `gen_random_uuid()`]
+  name text [not null]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+}
+
+Table list_categories {
+  list_id uuid [ref: > lists.id, note: 'ON DELETE CASCADE']
+  category_id uuid [ref: > categories.id, note: 'ON DELETE CASCADE']
+  indexes {
+    (list_id, category_id) [pk]
+  }
+}
+
+Table item_categories {
+  item_id uuid [ref: > items.id, note: 'ON DELETE CASCADE']
+  category_id uuid [ref: > categories.id, note: 'ON DELETE CASCADE']
+  indexes {
+    (item_id, category_id) [pk]
+  }
+}
+
+  // Key changes and considerations:
+  // Removal of category from items: The category field is removed from the items table to normalise the database structure
+  // list_categories Table: This junction table establishes a many-to-many relationship between lists and categories. Each row represents a category associated with a specific list
+  // item_categories Table: This junction table establishes a many-to-many relationship between items and categories. Each row represents a category associated with a specific item
+  // Primary Keys: The indexes block in both junction tables defines a composite primary key consisting of the list_id and category_id (or item_id and category_id), ensuring uniqueness for each combination
+  // Foreign Key Relationships: Both list_categories and item_categories include foreign key references (ref: > ...) to the lists, items, and categories tables, enforcing referential integrity
+  // .  The ON DELETE CASCADE option ensures that if a list, item, or category is deleted, the corresponding entries in the junction tables are also removed
+
+  // Benefits of this Approach:
+  // Flexibility: Categories can be associated with multiple lists and items, and vice versa
+  // Normalisation: Reduces data duplication and inconsistencies by storing category information in a separate table
+  // Query Efficiency: Allows for efficient querying of items and lists by category using joins
+
+  // Considerations:
+  // Ensure that your application logic properly manages the relationships between lists, items, and categories when creating, updating, or deleting records.
+  // Consider adding indexes to frequently queried columns in the categories table to improve query performance
+
+  
