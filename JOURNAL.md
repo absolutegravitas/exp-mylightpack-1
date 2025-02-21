@@ -48,9 +48,13 @@
 - added basic dexieClient and upstashClient
 - created schema v1 and v2 DBML located in /schema
 
+20-Feb
+- placeholder routes for waitlist, About
+- shadcnn based montecc components
+- docss forr nextjs react upstashh in continuee
 LATER
 
-- finalise versions of mylightpack schema
+
 - basic screenshots and image
 - basic waitlist page copy - checkout resend / new.email for inspiration
 - basic logo
