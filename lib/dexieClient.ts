@@ -1,24 +1,24 @@
 // lib/dexieClient.ts
-import Dexie from 'dexie';
+import Dexie from "dexie"
 
 export interface GearItem {
-  id?: number;
-  name: string;
-  weight: number;
+  id?: number
+  name: string
+  weight: number
   // add additional fields as needed
 }
 
 export class GearDB extends Dexie {
-  public gearItems: Dexie.Table<GearItem, number>;
+  public gearItems: Dexie.Table<GearItem, number>
 
   public constructor() {
-    super('GearDB');
+    super("GearDB")
     this.version(1).stores({
-      gearItems: '++id,name,weight'
+      gearItems: "++id,name,weight",
       // Additional tables can be defined here.
-    });
-    this.gearItems = this.table('gearItems');
+    })
+    this.gearItems = this.table("gearItems")
   }
 }
 
-export const db = new GearDB();
+export const db = new GearDB()
