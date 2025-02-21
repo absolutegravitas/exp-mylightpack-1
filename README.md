@@ -97,6 +97,8 @@ all in one command
 
 ```bash
 pnpm prettier:fix && pnpm lint:fix && pnpm build && pnpm run dev
+pnpm prettier:fix && pnpm lint:fix && pnpm build && pnpm run devtablet
+
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
