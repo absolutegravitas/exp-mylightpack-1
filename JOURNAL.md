@@ -46,16 +46,14 @@
 17-Feb
 - added journal.md to repo
 - added basic dexieClient and upstashClient
-- created schema v1 and v2 DBML located in /schema
+- created logical schema v1 and v2 DBML located in /schema
 
 21-Feb
+
+
 - placeholder routes for waitlist, about
 - shadcnn based montec ui components
 - docs for nextjs and upstash and dexie in continue
-
-LATER
-
-
 - basic screenshots and image
 - basic waitlist page copy - checkout resend / new.email for inspiration
 - basic logo
