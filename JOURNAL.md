@@ -48,10 +48,11 @@
 - added basic dexieClient and upstashClient
 - created schema v1 and v2 DBML located in /schema
 
-20-Feb
-- placeholder routes for waitlist, About
-- shadcnn based montecc components
-- docss forr nextjs react upstashh in continuee
+21-Feb
+- placeholder routes for waitlist, about
+- shadcnn based montec ui components
+- docs for nextjs and upstash and dexie in continue
+
 LATER
 
 
