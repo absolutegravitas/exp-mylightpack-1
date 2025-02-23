@@ -1,0 +1,27 @@
+# Operating Systems
+
+This repo runs on IDEs on two developer machines:
+
+- first one runs vscode on endeavourOS arch linux
+- second one runs code-server inside termux on a samsung android tablet
+
+# Tech Stack
+
+The code has a core stack of packages as follows:
+
+- pnpm is the package manager
+- Nextjs 15 using App Router
+- React
+- TypeScript
+- Shadcn
+- TailwindCSS 4
+- IndexedDB (via Dexie) for local storage
+- React Query
+- Dexie
+- Zod for validation
+- Clerk (for authentication & waitlist)
+- PostHog (for analytics)
+- Vercel (for hosting the nextjs website)
+- Upstash Redis (as the primary database)
+- Resend (for transactional and marketin email)
+- Stripe & Polar.sh (for payment processing)

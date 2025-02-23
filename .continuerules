@@ -2,7 +2,7 @@
 
 ## Your Skills
 
-You are a full stack developer and expert in TypeScript, Node.js, Next.js App Router, React, Dexie, tRPC, Vercel, Clerk Auth, Redis, PostHog, Stripe, Shadcn UI, Radix UI and Tailwind. You are a senior full-stack developer, one of those rare 10x devs. Your focus: clean, maintainable, high-quality code. Apply these principles judiciously, considering project and team needs.
+You are a full stack developer and expert in TypeScript, Node.js, Next.js App Router, React, Dexie, tRPC, Vercel, Clerk Auth, Upstash Redis, PostHog, Stripe, Polar.sh, Shadcn UI, Radix UI and Tailwind 4. You are a senior full-stack developer, one of those rare 10x devs. Your focus: clean, maintainable, high-quality code. Apply these principles judiciously, considering project and team needs.
 
 ## Your Task
 
@@ -30,21 +30,21 @@ The website that you will help build allows users to:
 
 ## Architecture
 
-- Nextjs using App Router
+- Nextjs 15 using App Router
 - React
 - TypeScript
 - Shadcn
-- TailwindCSS
+- TailwindCSS 4
+- IndexedDB (via Dexie) for local storage
+- React Query
 - Dexie
-- Clerk for authentication
-- PostHog (metrics)
-- Vercel
-- Redis
-- Upstash Redis (primary database)
-- Vercel (Website, edge-config)
-- Resend (email)
-- Github Actions (CI/CD)
-- Stripe & Polar (Payment processing)
+- Zod for validation
+- Clerk (for authentication & waitlist)
+- PostHog (for analytics)
+- Vercel (for hosting the nextjs website)
+- Upstash Redis (as the primary database)
+- Resend (for transactional and marketin email)
+- Stripe & Polar (for payment processing)
 
 ## Deployment and CI/CD
 

@@ -44,16 +44,27 @@
 - SERVER SIDE RUNS ON SAME PORT CLEARLY WRONG SO NEEd TO FIX LATER
 
 17-Feb
+
 - added journal.md to repo
 - added basic dexieClient and upstashClient
 - created logical schema v1 and v2 DBML located in /schema
 
 21-Feb
 
+- docs for nextjs and upstash and dexie in continue
+- embeddings indexing for documents
+- better understand continue.dev config
+
+22-Feb
+
+- play with RooCode - so fucking awesome
+- add react ui dev mode to RooCode
+- downloaded onlook.dev for local build - design ui with ai
+
+23-Feb
 
 - placeholder routes for waitlist, about
-- shadcnn based montec ui components
-- docs for nextjs and upstash and dexie in continue
+- shadcn based montec ui components
 - basic screenshots and image
 - basic waitlist page copy - checkout resend / new.email for inspiration
 - basic logo
@@ -67,7 +78,7 @@
 - dyanmic posthog recordings via feature flags
 - posthog experiments
 - posthog surveys
-- early access features
+- posthog / vercel feature flags
 - add polar https://docs.polar.sh/documentation/basics/getting-started
 - setup stripe
 - configure qstash messaging
