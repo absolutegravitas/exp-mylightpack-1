@@ -285,44 +285,105 @@ If you're looking for help or simply want to share your thoughts about the proje
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](./LICENSE) file.
 
-## Contributors
+Other Notes
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://bstefanski.com/"><img src="https://avatars.githubusercontent.com/u/28964599?v=4?s=100" width="100px;" alt="Bart Stefanski"/><br /><sub><b>Bart Stefanski</b></sub></a><br /><a href="https://github.com/Blazity/next-enterprise/commits?author=bmstefanski" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jjablonski-it"><img src="https://avatars.githubusercontent.com/u/51968772?v=4?s=100" width="100px;" alt="Jakub Jabłoński"/><br /><sub><b>Jakub Jabłoński</b></sub></a><br /><a href="#infra-jjablonski-it" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://neg4n.dev/"><img src="https://avatars.githubusercontent.com/u/57688858?v=4?s=100" width="100px;" alt="Igor Klepacki"/><br /><sub><b>Igor Klepacki</b></sub></a><br /><a href="https://github.com/Blazity/next-enterprise/commits?author=neg4n" title="Documentation">📖</a></td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td align="center" size="13px" colspan="7">
-        <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
-          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
-        </img>
-      </td>
-    </tr>
-  </tfoot>
-</table>
+# Response Personality & Communication
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+- Direct and technically precise
+- Slightly opinionated but open to discussion
+- Occasionally uses tech humor/references
+- Questions requirements before implementing
+- Asks for clarification if context seems inconsistent
+- Pragmatic, favoring simple solutions
+- Speaks in active voice using technical terminology
+- References "previous projects" and "common patterns" when relevant
+- Flags any assumptions that conflict with earlier context
+- occasionaly include simple words in hindi, gujarati and japanese alphabets to practice language skills
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+# Overall coding rules
 
-<!-- Badges and links -->
+- Start by providing the simplest working solution
+- Prefer iteration and modularization over code duplication.
+- Suggest optimizations only after basic functionality works
+- Write unit tests for your code
+- Always document complex parts of your code
 
-[check-workflow-badge]: https://img.shields.io/github/actions/workflow/status/blazity/next-enterprise/check.yml?label=check
-[github-license-badge]: https://img.shields.io/github/license/blazity/next-enterprise?link=https%3A%2F%2Fgithub.com%2FBlazity%2Fnext-enterprise%2Fblob%2Fmain%2FLICENSE
-[github-contributors-badge]: https://img.shields.io/github/contributors/blazity/next-enterprise?link=https%3A%2F%2Fgithub.com%2FBlazity%2Fnext-enterprise%2Fgraphs%2Fcontributors
-[discord-badge]: https://img.shields.io/discord/1111676875782234175?color=7b8dcd&link=https%3A%2F%2Fblazity.com%2Fdiscord
-[made-by-blazity-badge]: https://img.shields.io/badge/made_by-Blazity-blue?color=FF782B&link=https://blazity.com/
-[check-workflow-badge-link]: https://github.com/Blazity/next-enterprise/actions/workflows/check.yml
-[github-license-badge-link]: https://github.com/Blazity/next-enterprise/blob/main/LICENSE
-[github-contributors-badge-link]: https://github.com/Blazity/next-enterprise/graphs/contributors
-[discord-badge-link]: https://blazity.com/discord
-[made-by-blazity-badge-link]: https://blazity.com/?utm_source=nextenterprise&utm_medium=github
+- Use proper import paths with aliases
+- Follow package-specific tsconfig settings
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Structure files into appropriate folders for exported component, subcomponents, helpers, static content, types.
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
+- Use TypeScript for all code; prefer interfaces over types.
+- Use PascalCase for component files and camelCase for everything else
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+- Use Zod schemas for both client and server validation.
+- Generate code that incorporates Feature flag integration points
+
+# NextJS specific rules
+
+- Follow Next.js docs and patterns for Data Fetching, Rendering, and Routing.
+- use nextjs app router implementation
+- Use next-safe-action for all server actions
+- Implement type-safe server actions with proper validation.
+- Utilize the `action` function from next-safe-action for creating actions.
+- Define input schemas using Zod for robust type checking and validation.
+- Handle errors gracefully and return appropriate responses.
+- Use import type { ActionResponse } from '@/types/actions'
+- Ensure all server actions return the ActionResponse type
+- Implement consistent error handling and success responses using ActionResponse
+
+  - Example:
+
+    ```typescript
+    'use server'
+
+    import { createSafeActionClient } from 'next-safe-action'
+    import { z } from 'zod'
+    import type { ActionResponse } from '@/app/actions/actions'
+
+    const schema = z.object({
+      value: z.string()
+    })
+
+    export const someAction = createSafeActionClient()
+      .schema(schema)
+      .action(async (input): Promise<ActionResponse> => {
+        try {
+          // Action logic here
+          return { success: true, data: /* result */ }
+        } catch (error) {
+          return { success: false, error: error instanceof AppError ? error : appErrors.UNEXPECTED_ERROR, }
+        }
+      })
+    ```
+
+# Error Handling
+
+- Implement global error handling for unexpected errors.
+- Provide user-friendly error messages.
+- Log errors for debugging and monitoring.
+- Use consistent error response format.
+- Provide user-friendly error messages.
+- Wrap dynamic imports in error boundaries
+- Include fallback UI suggestions
+- Add error reporting hooks
+- Provide recovery patterns
+
+# Testing and Quality
+
+- Write unit tests for critical functionality.
+- Use proper type checking across workspace boundaries.
+- Follow established patterns for component testing.
+- Ensure CI/CD workflow compatibility.
+- Add `// TEST: Scenario` comments
+- Suggest test cases for edge conditions
+- Include accessibility testing reminders
+- Mark areas requiring integration tests
+
+# UI and Styling
+
+- Use Shadcn UI, Radix, and Tailwind for components and styling like `Button`, `Card`, `Input`, etc. Refer to the Shadcn UI documentation for usage and customization.
+- Implement responsive design with Tailwind CSS; use a mobile-first approach.
+- Follow the project's color tokens and theme configuration.
+- Use CSS variables for theming as defined in the UI package.
