@@ -1,5 +1,8 @@
 const policies = {
+  "child-src": ["'self'", "http://cdn.jsdelivr.net"],
   "default-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+
+  "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
   "script-src": [
     "'self'",
     "'unsafe-inline'",
@@ -18,9 +21,12 @@ const policies = {
     "https://unpkg.com", // for unpkg
     "https://www.google.com", // for reCAPTCHA
     "https://www.gstatic.com",
+
+    "https://us-assets.i.posthog.com", // for posthog assets
+    "https://us.i.posthog.com", // for posthog assets
+
     "https://vercel.live", // for vercel live
   ],
-  "child-src": ["'self'", "http://cdn.jsdelivr.net"],
   "style-src": [
     "'self'",
     "'unsafe-inline'",
@@ -46,7 +52,6 @@ const policies = {
     "https://media.licdn.com", // for linkedin login
     "https://platform-lookaside.fbsbx.com", // for facebook login
   ],
-  "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
   "frame-src": [
     "'self'",
     "https://checkout.stripe.com", // for stripe
@@ -67,6 +72,8 @@ const policies = {
     "https://api.stripe.com", // for stripe
     "https://maps.googleapis.com", // for google maps
     "https://*.maps.googleapis.com", // for google maps
+    "https://us-assets.i.posthog.com", // for posthog assets
+    "https://us.i.posthog.com", // for posthog assets
   ],
 }
 
