@@ -63,6 +63,16 @@
 
 23-Feb
 
+- distracted further by RooCline MCP servers - wicked
+- incorporated memory, planning, github and puppeteer as MCPs
+- no using Architect mode to plan and document the features out
+- deleted PRD not useful
+
+25-Feb
+
+- RooCode is WICKED and fast tracked the development of my web app
+- cooking WITH SPEED
+
 - placeholder routes for waitlist, about
 - shadcn based montec ui components
 - basic screenshots and image
