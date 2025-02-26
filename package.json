@@ -26,6 +26,7 @@
     "react-is": "^19.0.0-rc-69d4b800-20241021"
   },
   "dependencies": {
+    "@clerk/elements": "^0.22.23",
     "@clerk/nextjs": "^6.11.1",
     "@million/lint": "^1.0.14",
     "@next/bundle-analyzer": "^15.1.6",
@@ -74,6 +75,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.475.0",
     "million": "^3.1.11",
+    "motion": "^12.4.7",
     "next": "15.1.6",
     "posthog-js": "^1.215.6",
     "react": "^19.0.0",
@@ -149,5 +151,10 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@10.5.0"
+  "packageManager": "pnpm@10.5.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@clerk/shared"
+    ]
+  }
 }
