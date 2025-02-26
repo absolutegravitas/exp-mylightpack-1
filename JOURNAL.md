@@ -93,3 +93,6 @@
 - setup stripe
 - configure qstash messaging
   instead of the previous link use blocks from shadcn directly. some are located here https://ui.shadcn.com/blocks
+- onboarding tour - https://nyxbui.design/docs/components/tour
+
+Examine the local Git commit history. For each commit, analyze the code changes by reviewing the diffs. Update the 'memory bank' documentation to reflect the code modifications introduced by each commit. Update the progress file to record completion for each commit, including the commit hash and a brief summary of documented changes. Clarifying questions are encouraged to ensure accurate interpretation of any ambiguous instructions
