@@ -2,6 +2,7 @@ import "styles/tailwind.css"
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import { Geist, Geist_Mono } from "next/font/google"
 import { PostHogProvider } from "./provider"
+import { CookieConsent } from "@/components/cookie-consent"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SignedIn>
               <UserButton />
             </SignedIn>
+            <CookieConsent
+              variant="default"
+              // onAcceptCallback={() => {
+              //   // Handle accept
+              // }}
+              // onDeclineCallback={() => {
+              //   // Handle decline
+              // }}
+            />
             {children}
           </PostHogProvider>
         </body>
