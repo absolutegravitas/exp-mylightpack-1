@@ -1,79 +1,117 @@
+//https://clerk.com/docs/security/clerk-csp
 const policies = {
+  "default-src": ["'self'"],
   "child-src": ["'self'", "http://cdn.jsdelivr.net"],
-  "default-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+  "font-src": ["'self'", "https://cdn.jsdelivr.net"],
+  "worker-src": ["'self'", "blob:"],
 
-  "font-src": ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
   "script-src": [
     "'self'",
     "'unsafe-inline'",
     "'unsafe-eval'",
-    "https://pay.google.com", // for google pay
-    "https://applepay.cdn-apple.com", // for apple pay
-    "https://va.vercel-scripts.com", // for vercel
-    "https://checkout.stripe.com", // for stripe
-    "https://js.stripe.com", // for stripe
-    "https://maps.googleapis.com", // for google maps
-    "https://*.maps.googleapis.com", // for google maps
-    "https://fonts.googleapis.com", // for google fonts
-    "https://fonts.gstatic.com", // for google fonts
-    "http://cdn.jsdelivr.net", // for jsdelivr
-    "https://vercel.live/", // for vercel feedback
-    "https://unpkg.com", // for unpkg
-    "https://www.google.com", // for reCAPTCHA
-    "https://www.gstatic.com",
 
-    "https://us-assets.i.posthog.com", // for posthog assets
-    "https://us.i.posthog.com", // for posthog assets
+    // scripts
+    "http://cdn.jsdelivr.net",
 
-    "https://vercel.live", // for vercel live
+    // payments
+    "https://*.stripe.com",
+    "https://pay.google.com",
+    "https://applepay.cdn-apple.com",
+
+    // clerk auth
+    "https://*.clerk.dev",
+    "https://clerk.dev",
+    "https://cheerful-vervet-14.clerk.accounts.dev",
+    "https://*.clerk.accounts.dev",
+    "https://challenges.cloudflare.com",
+
+    // posthog
+    "https://us-assets.i.posthog.com",
+    "https://us.i.posthog.com",
+
+    // vercel
+    "https://vercel.live",
+    "https://va.vercel-scripts.com",
   ],
   "style-src": [
     "'self'",
     "'unsafe-inline'",
-    "https://fonts.googleapis.com", // for google fonts
-    "https://fonts.gstatic.com", // for google fonts
-    "http://cdn.jsdelivr.net", // for jsdelivr
+
+    // scripts
+    "http://cdn.jsdelivr.net",
   ],
   "img-src": [
     "'self'",
     "data:",
     "blob:",
-    "https://*.stripe.com", // for stripe
 
-    "https://images.unsplash.com", // for unsplash
+    // scripts
     "http://cdn.jsdelivr.net",
-    "https://maps.gstatic.com",
-    "https://*.maps.gstatic.com", // for google maps
 
-    "https://placehold.co", // for placehold
+    // payments
+    "https://*.stripe.com",
+    "https://pay.google.com",
+    "https://applepay.cdn-apple.com",
 
-    "https://pay.google.com", // for google pay
-    "https://lh3.googleusercontent.com", // for google login
-    "https://media.licdn.com", // for linkedin login
-    "https://platform-lookaside.fbsbx.com", // for facebook login
+    // clerk auth
+    "https://img.clerk.com",
+
+    // images
+    "https://images.unsplash.com",
+    "https://placehold.co",
+
+    // login with google, facebook
+    "https://lh3.googleusercontent.com",
+    "https://platform-lookaside.fbsbx.com",
   ],
   "frame-src": [
     "'self'",
-    "https://checkout.stripe.com", // for stripe
-    "https://pay.google.com", // for google pay
-    "https://applepay.cdn-apple.com", // for apple pay
-    "https://js.stripe.com", // for stripe
-    "https://hooks.stripe.com", // for stripe
-    "https://maps.googleapis.com", // for google maps
-    "https://www.google.com", // for reCAPTCHA
-    "https://www.gstatic.com", // for reCAPTCHA
-    "https://vercel.live", // for vercel live
+
+    // scripts
+    "http://cdn.jsdelivr.net",
+
+    // payments
+    "https://*.stripe.com",
+    "https://pay.google.com",
+    "https://applepay.cdn-apple.com",
+
+    // vercel
+    "https://vercel.live",
+    "https://va.vercel-scripts.com",
+
+    // clerk auth
+    "https://*.clerk.dev",
+    "https://*.clerk.accounts.dev",
+    "https://clerk.dev",
+    "https://challenges.cloudflare.com",
+    "https://cheerful-vervet-14.clerk.accounts.dev",
   ],
   "connect-src": [
     "'self'",
-    "https://checkout.stripe.com", // for stripe
-    "https://pay.google.com", // for google pay
-    "https://applepay.cdn-apple.com", // for apple pay
-    "https://api.stripe.com", // for stripe
-    "https://maps.googleapis.com", // for google maps
-    "https://*.maps.googleapis.com", // for google maps
-    "https://us-assets.i.posthog.com", // for posthog assets
-    "https://us.i.posthog.com", // for posthog assets
+    // payments
+    "https://*.stripe.com",
+    "https://pay.google.com",
+    "https://applepay.cdn-apple.com",
+
+    // recaptcha
+
+    // vercel
+    "https://vercel.live",
+    "https://va.vercel-scripts.com",
+
+    // posthog
+    "https://us-assets.i.posthog.com",
+    "https://us.i.posthog.com",
+
+    // clerk auth
+    "https://clerk.dev",
+    "https://*.clerk.dev",
+    "https://*.clerk.accounts.dev",
+    "wss://*.clerk.dev", // For Clerk WebSockets
+    "wss://*.clerk.accounts.dev", // For Clerk WebSockets
+    "https://cheerful-vervet-14.clerk.accounts.dev",
+    "https://*.clerk.accounts.dev",
+    "https://clerk-telemetry.com/v1/event",
   ],
 }
 
