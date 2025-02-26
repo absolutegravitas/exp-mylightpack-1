@@ -34,6 +34,20 @@ This document breaks down the implementation strategy into specific, actionable 
 
 ---
 
+## Phase 1.1: Clerk Authentication Integration
+
+- **Feature**: Integrate Clerk authentication to secure the application and manage user access.
+- **Steps**:
+  1. **Environment Variables Setup**: Ensure `CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` environment variables are set up in `.env.local`.
+  2. **`ClerkProvider` Setup in `app/layout.tsx`**: Uncomment the `ClerkProvider` wrapper and ensure correct import from `@clerk/nextjs`.
+  3. **Implement Sign-in and Sign-up Components**: Add `<SignInButton>` and `<SignUpButton>` to `app/layout.tsx` within `SignedOut` components.
+  4. **Protecting Routes**: Implement route protection using `<SignedIn>`, `<SignedOut>` components and `auth()` for API routes.
+  5. **User Profile Integration**: Add `<UserButton>` to `app/layout.tsx` within `SignedIn` component.
+  6. **Customization and UI/UX Polish**: Review Clerk theming options.
+  7. **Testing**: Test authentication flow thoroughly.
+
+---
+
 ## Phase 2: Enhanced User Experience
 
 ### 4. Sharing and Collaboration
@@ -64,35 +78,35 @@ This document breaks down the implementation strategy into specific, actionable 
 
 ## GitHub Issues Integration
 
-### 7. List Locking and Concurrent Edit Support (#96)
+### 7. List Locking and Concurrent Edit Support
 
 - **Steps**:
   1. Implement list locking for exclusive editing.
   2. Develop real-time collaboration features.
   3. Create conflict resolution system for simultaneous changes.
 
-### 8. Group Member Signup Requirement (#95)
+### 8. Group Member Signup Requirement
 
 - **Steps**:
   1. Modify group invitation process to require account creation.
   2. Streamline signup for invited members.
   3. Implement account linking for existing users.
 
-### 9. Group List Integration with Dashboards (#94)
+### 9. Group List Integration with Dashboards
 
 - **Steps**:
   1. Display shared group lists on member dashboards.
   2. Add notifications for updates to shared group lists.
   3. Ensure proper permissions and privacy controls.
 
-### 10. Shared Kit and Item Management (#93)
+### 10. Shared Kit and Item Management
 
 - **Steps**:
   1. Develop functionality for managing shared kits and items within groups.
   2. Implement weight split calculations for shared gear.
   3. Create interface for assigning shared gear to group members.
 
-### 11. List Analytics Dashboard (#86)
+### 11. List Analytics Dashboard
 
 - **Steps**:
   1. Create a dashboard for list analytics, including visits, ratings, and reviews.

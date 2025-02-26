@@ -92,3 +92,4 @@
 - add polar https://docs.polar.sh/documentation/basics/getting-started
 - setup stripe
 - configure qstash messaging
+  instead of the previous link use blocks from shadcn directly. some are located here https://ui.shadcn.com/blocks
