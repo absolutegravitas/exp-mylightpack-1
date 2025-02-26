@@ -8,6 +8,22 @@
 /* @config '../tailwind.config.js'; */
 
 @theme {
+  /* Define a custom property for your animation */
+  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+  /* Define your keyframes directly */
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -77,6 +93,10 @@
 @layer utilities {
   body {
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .animate-caret-blink {
+    animation: var(--animate-caret-blink);
   }
 }
 
