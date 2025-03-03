@@ -59,6 +59,9 @@ const policies = {
     // images
     "https://images.unsplash.com",
     "https://placehold.co",
+    "https://assets.aceternity.com",
+    "https://html.tailus.io/",
+    "https://shadcnblocks.com/",
 
     // login with google, facebook
     "https://lh3.googleusercontent.com",
