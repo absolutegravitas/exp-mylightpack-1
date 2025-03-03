@@ -72,4 +72,5 @@
 ## Next Steps
 
 - Memory bank documentation is updated with commit history.
-- Task completed. Is there anything else I can help you with?
+- Present implementation tasks based on Memory Bank content.
+- Wait for user selection before proceeding.
