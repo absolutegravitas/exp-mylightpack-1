@@ -1,6 +1,7 @@
 "use client"
 
 import { CookieIcon } from "lucide-react"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -73,9 +74,9 @@ export function CookieConsent({
                 By clicking
                 <span className="font-medium text-black dark:text-white"> Accept</span>, you agree to our use of
                 cookies.{" "}
-                <a href="#" className="text-xs underline">
-                  Learn more.
-                </a>
+                <Link href="/terms" className="text-xs underline">
+                  Terms
+                </Link>
               </span>
               <br />
             </p>
