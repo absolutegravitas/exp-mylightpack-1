@@ -1,9 +1,12 @@
 import "styles/tailwind.css"
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
+import { Github, Hexagon, Twitter } from "lucide-react"
 import { Geist, Geist_Mono } from "next/font/google"
 import { CookieConsent } from "@/components/cookie-consent"
+import { Logo } from "@/components/Logo/Logo"
+import { Footer } from "@/components/ui/footer"
+import { Header1 } from "@/components/ui/header"
 import { PostHogProvider } from "./provider"
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,13 +37,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <PostHogProvider>
-            <SignedOut>
+            <Header1 />
+            {/* <SignedOut>
               <SignInButton />
               <SignUpButton />
             </SignedOut>
             <SignedIn>
               <UserButton />
-            </SignedIn>
+            </SignedIn> */}
             <CookieConsent
               variant="default"
               // onAcceptCallback={() => {
@@ -51,6 +55,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               // }}
             />
             {children}
+
+            <Footer
+              logo={<Logo className="h-10 w-10" />}
+              brandName="myLightPack"
+              socialLinks={[
+                {
+                  icon: <Twitter className="h-5 w-5" />,
+                  href: "https://twitter.com",
+                  label: "Twitter",
+                },
+                {
+                  icon: <Github className="h-5 w-5" />,
+                  href: "https://github.com",
+                  label: "GitHub",
+                },
+              ]}
+              mainLinks={[
+                { href: "/home", label: "Home" },
+                { href: "/dashboard", label: "About" },
+                { href: "/blog", label: "Blog" },
+                { href: "/roadmap", label: "Roadmap" },
+                { href: "/release-notes", label: "Release Notes" },
+                { href: "/privacy", label: "Privacy" },
+                { href: "/terms", label: "Terms" },
+              ]}
+              legalLinks={[]}
+              copyright={{
+                text: "© 2024 Awesome Corp",
+                license: "All rights reserved",
+              }}
+            />
           </PostHogProvider>
         </body>
       </html>

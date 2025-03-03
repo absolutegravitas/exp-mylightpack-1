@@ -38,6 +38,7 @@ const config: NextConfig = {
       { protocol: "https", hostname: "**fonts.googleapis.com**" },
       { protocol: "https", hostname: "**cdn.jsdelivr.net**" },
       { protocol: "https", hostname: "**images.unsplash.com**" },
+      { protocol: "https", hostname: "**aceternity.com**" },
 
       { protocol: "https", hostname: "**placehold.co**" },
 

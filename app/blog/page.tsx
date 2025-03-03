@@ -1,8 +1,10 @@
+import { Container } from "@/components/ui/container"
+import { LatestPosts } from "@/components/ui/latest-posts"
+
 export default function BlogPage() {
   return (
-    <div>
-      <h1>Blog Page</h1>
-      <p>This is the blog page content.</p>
-    </div>
+    <Container className="flex flex-col items-center justify-center">
+      <LatestPosts />
+    </Container>
   )
 }

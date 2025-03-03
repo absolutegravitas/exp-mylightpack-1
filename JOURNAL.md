@@ -96,3 +96,19 @@
 - onboarding tour - https://nyxbui.design/docs/components/tour
 
 Examine the local Git commit history. For each commit, analyze the code changes by reviewing the diffs. Update the 'memory bank' documentation to reflect the code modifications introduced by each commit. Update the progress file to record completion for each commit, including the commit hash and a brief summary of documented changes. Clarifying questions are encouraged to ensure accurate interpretation of any ambiguous instructions
+
+Build List from Gear or Bundle https://www.kibo-ui.com/components/kanban
+Pill components shttps://www.kibo-ui.com/components/pill
+Fancy multiselect for adding stuff to lists etc. https://craft.mxkaske.dev/post/fancy-multi-select
+Data Table with sort cool pills etc. https://data-table.openstatus.dev/
+v0 UI components https://v0.dev/chat/history
+
+word rotate and general other components on this library https://nyxbui.design/docs/components/word-rotate
+
+https://www.fancycomponents.dev/docs/components/text/scramble-hover
+
+https://motion-primitives.com/docs
+
+animated icons https://icons.pqoqubbw.dev/
+https://linked-chart.vercel.app/
+https://originui.com/
