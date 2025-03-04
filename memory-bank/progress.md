@@ -1,5 +1,12 @@
 ## Work Done
 
+- 2025-03-04: Updated Memory Bank files (`activeContext.md`, `progress.md`, `decisionLog.md`) for UMB.
+- 2025-03-04: Read `memory-bank/activeContext.md`, `memory-bank/progress.md`, and `memory-bank/decisionLog.md` for UMB.
+- 2025-03-04: Processed commit `35203dd09f28d79c1bbcc76ae6113a1298b87701`: Updated landing page sections.
+- 2025-03-04: Processed commit `c0f186104bbbd129fe55ee0bd9c8998b591b4c43`: Added demo route.
+- 2025-03-04: Processed commit `d0d993f6bcc13729eb21b7b93ed51331e76e1854`: Added placeholder images.
+- 2025-03-04: Processed commit `72a77dff5ff66e3e3102a3d4fe08adfa771ee3c7`: Added Shadcn UI components.
+- 2025-03-04: Processed commit `1b11b56d64c1a0655f076a97ac9247564f1e6515`: Updated nav components.
 - 2025-02-27: Processed commit `d886dda59c35596b526aa27770bad75c3b226b11`: Updated UI components (`CookieConsent`, `Card`, `Label`) to improve code formatting and consistency. No functional changes were introduced.
 - 2025-02-27: Processed commit `31b2a3aa602fabdacef863a672a274a4cfc1e5b0`: Implemented a fully functional sign-in route at `app/sign-in/[[...sign-in]]/page.tsx` using Clerk Auth and Shadcn UI components. This includes social sign-in, email/password sign-in, and verification steps, significantly enhancing the application's authentication capabilities.
 - 2025-02-27: Processed commit `7cb0963adc8bff14bb976f579499b26f406c864a`: Implemented basic styling customization for Clerk Auth components within `app/layout.tsx` using the `appearance` prop, setting primary color and basic element styles for buttons and cards.
@@ -68,9 +75,3 @@
 - 2025-02-25: Processed commit `f4834e1ad48d940fa85e9b4a366afcd8f78a06ad`: Added millionlint but kept disabled, likely for future performance linting.
 - 2025-02-25: Processed commit `c82c697381f36bdbdd7ff09d9b2d35223a9895dd`: Added continue rules, setting up configuration for the Continue development environment.
 - 2025-02-25: Processed commit `5831749b516790085bc44e6341a924f0d1e89888`: Initial commit of the project.
-
-## Next Steps
-
-- Memory bank documentation is updated with commit history.
-- Present implementation tasks based on Memory Bank content.
-- Wait for user selection before proceeding.
