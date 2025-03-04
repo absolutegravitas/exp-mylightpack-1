@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Logo } from "../Logo/Logo"
 
 interface FooterProps {
   logo: React.ReactNode
@@ -28,12 +29,12 @@ interface FooterProps {
 
 export function Footer({ logo, brandName, socialLinks, mainLinks, legalLinks, copyright }: FooterProps) {
   return (
-    <footer className="pt-16 pb-6 lg:pt-24 lg:pb-8">
+    <footer className="relative container mx-auto w-full items-center pt-16 pb-6 lg:pt-24 lg:pb-8">
       <div className="px-4 lg:px-8">
-        <div className="md:flex md:items-start md:justify-between">
-          <Link href="/" className="flex items-center gap-x-2" aria-label={brandName}>
+        <div className="align-bottom md:flex md:items-start md:justify-between">
+          <Link href="/" className="flex place-items-end items-end gap-x-2 align-bottom" aria-label={brandName}>
             {logo}
-            <span className="text-xl font-bold">{brandName}</span>
+            <span className="pb-2 text-xl font-bold">{brandName}</span>
           </Link>
           <ul className="mt-6 flex list-none space-x-3 md:mt-0">
             {socialLinks.map((link, i) => (

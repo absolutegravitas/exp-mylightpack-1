@@ -1,10 +1,21 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowBigDown, ArrowDown, ChevronDownIcon, LeafyGreenIcon, MoveRight } from "lucide-react"
+import {
+  ArrowBigDown,
+  ArrowDown,
+  ArrowRightIcon,
+  CarIcon,
+  ChevronDownIcon,
+  LeafyGreenIcon,
+  MoveRight,
+  ShipWheelIcon,
+} from "lucide-react"
 import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { TextLoop } from "@/components/ui/text-loop"
+import { Logo } from "../Logo/Logo"
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0)
@@ -24,108 +35,84 @@ function Hero() {
   return (
     <div className="w-full">
       <div className="container mx-auto">
-        <div className="#lg:py-40 #py-20 flex flex-col items-center justify-center gap-8">
+        <div className="flex flex-col items-center justify-center gap-8 pt-20 pb-10 lg:pt-40 lg:pb-20">
           <div>
-            <Link href="/blog/launch">
-              <Button variant="secondary" size="sm" className="gap-4">
+            <Link href="/blog/launch" className="cursor-pointer">
+              <Button
+                variant="secondary"
+                size="sm"
+                className="hover:bg-accent-foreground hover:text-accent cursor-pointer gap-4"
+              >
                 Read our launch article <MoveRight className="h-4 w-4" />
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col gap-y-4">
-            <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">myLightPack</h1>
-
-            <h2 className="font-regular max-w-xl text-center text-3xl tracking-tighter italic md:text-4xl md:leading-10">
-              <span className="text-spektr-cyan-50">{`count every`}</span>
-              <span className="#md:pt-1 #flex relative w-full items-center justify-center overflow-hidden text-center md:pb-4">
-                &nbsp;
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute font-semibold"
-                    initial={{
+          <div className="flex flex-col items-center gap-y-4">
+            {/* <h1 className="flex scroll-m-20 items-center text-center align-middle text-4xl font-extrabold tracking-tight lg:text-5xl">
+              <Logo className="h-18 w-18 pr-2" />
+              myLightPack
+            </h1> */}
+            <h1 className="font-regular max-w-lg text-left text-5xl tracking-tighter md:text-7xl">
+              <Logo className="h-18 w-18 pr-2" />
+              myLightPack
+            </h1>
+            <h2 className="font-regular #md:leading-10 max-w-xl text-center text-2xl tracking-tighter italic md:text-3xl">
+              <span className="inline-flex whitespace-pre-wrap">
+                {"count every "}
+                <TextLoop
+                  className="overflow-y-clip"
+                  transition={{
+                    type: "spring",
+                    stiffness: 900,
+                    damping: 80,
+                    mass: 10,
+                  }}
+                  variants={{
+                    initial: {
+                      y: 20,
+                      rotateX: 90,
                       opacity: 0,
-                      y: -100,
-                    }}
-                    // initial={{ opacity: 0, y: "-100" }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 85,
-                      damping: 10,
-                    }}
-                    // transition={{ type: "spring", stiffness: 50 }}
-                    // animate={{
-                    //   opacity: 1,
-                    //   y: 0,
-                    // }}
-                    animate={
-                      titleNumber === index
-                        ? {
-                            y: 0,
-                            opacity: 1,
-                          }
-                        : {
-                            y: titleNumber > index ? -10 : 10,
-                            opacity: 0,
-                          }
-                    }
-                    exit={{
+                      filter: "blur(4px)",
+                    },
+                    animate: {
+                      y: 0,
+                      rotateX: 0,
+                      opacity: 1,
+                      filter: "blur(0px)",
+                    },
+                    exit: {
+                      y: -20,
+                      rotateX: -90,
                       opacity: 0,
-                      y: -40,
-                      x: 40,
-                      filter: "blur(8px)",
-                      scale: 2,
-                      position: "absolute",
-                    }}
-                  >
-                    {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
-                    {/* {(title || "").split(" ").map((word, wordIndex) => (
-                      <motion.span
-                        key={word + wordIndex}
-                        initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{
-                          delay: wordIndex * 0.3,
-                          duration: 0.3,
-                        }}
-                        className="inline-block whitespace-nowrap"
-                      >
-                        {word.split("").map((letter, letterIndex) => (
-                          <motion.span
-                            key={word + letterIndex}
-                            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                            transition={{
-                              delay: wordIndex * 0.3 + letterIndex * 0.05,
-                              duration: 0.2,
-                            }}
-                            className="inline-block"
-                          >
-                            {letter}
-                          </motion.span>
-                        ))}
-                      </motion.span>
-                    ))} */}
-                    {` ${title}`}
-                  </motion.span>
-                ))}
+                      filter: "blur(4px)",
+                    },
+                  }}
+                >
+                  <span className="font-semibold">gram</span>
+                  <span className="font-semibold">ounce</span>
+                  <span className="font-semibold">kilo</span>
+                  <span className="font-semibold">pound</span>
+                  <span className="font-semibold">litre</span>
+                  <span className="font-semibold">cup</span>
+                  <span className="font-semibold">teaspoon</span>
+                  <span className="font-semibold">bowl</span>
+                </TextLoop>
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl text-center text-lg leading-relaxed tracking-tight md:text-xl">
-              Managing a small business today is already tough. Avoid further complications by ditching outdated,
-              tedious trade methods. Our goal is to streamline SMB trade, making it easier and faster than ever.
+            <p className="text-muted-foreground max-w-2xl text-center text-lg leading-normal tracking-tight md:text-xl">
+              {`Track your gear and optimize your pack weight for your next adventure. For hikes, backpacking, travel.`}
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Link href="/#features">
+            <Link href="/demo">
               <Button size="lg" className="gap-4" variant="outline">
-                Learn More <ChevronDownIcon className="h-4 w-4" />
+                Test Drive <CarIcon className="h-4 w-4" />
               </Button>
             </Link>
             <Link href="/#pricing">
               <Button size="lg" className="gap-4">
                 Sign Up
-                <LeafyGreenIcon className="h-4 w-4" />
+                <ArrowRightIcon className="h-4 w-4" />
               </Button>
             </Link>
           </div>

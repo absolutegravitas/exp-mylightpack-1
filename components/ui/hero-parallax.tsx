@@ -3,7 +3,9 @@ import { motion, type MotionValue, useScroll, useSpring, useTransform } from "fr
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
+import { Badge } from "@/components/ui/badge"
 import { FlipWords } from "@/components/ui/flip-words"
+import { TextEffect } from "@/components/ui/text-effect"
 
 export const HeroParallax = ({
   products,
@@ -32,36 +34,42 @@ export const HeroParallax = ({
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig)
   const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-400, 500]), springConfig)
   return (
-    <div
-      ref={ref}
-      className="#h-[200vh] relative flex flex-col self-auto overflow-hidden py-40 antialiased [perspective:1000px] [transform-style:preserve-3d]"
-    >
-      {/* <Header /> */}
-      <motion.div
-        style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
-        }}
-        className=""
-      >
-        <motion.div className="mb-20 flex flex-row-reverse space-x-20 space-x-reverse">
-          {firstRow.map((product) => (
-            <ProductCard product={product} translate={translateX} key={product.title} />
-          ))}
-        </motion.div>
-        <motion.div className="mb-20 flex flex-row space-x-20">
-          {secondRow.map((product) => (
-            <ProductCard product={product} translate={translateXReverse} key={product.title} />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
-          {thirdRow.map((product) => (
-            <ProductCard product={product} translate={translateX} key={product.title} />
-          ))}
-        </motion.div>
-      </motion.div>
+    <div className="#py-20 #lg:py-40 w-full">
+      <div className="container mx-auto">
+        <div className="#gap-10 flex flex-col">
+          <div
+            ref={ref}
+            className="#h-[200vh] relative flex flex-col self-auto overflow-hidden py-40 antialiased [perspective:1000px] [transform-style:preserve-3d]"
+          >
+            {/* <Header /> */}
+            <motion.div
+              style={{
+                rotateX,
+                rotateZ,
+                translateY,
+                opacity,
+              }}
+              className=""
+            >
+              <motion.div className="mb-20 flex flex-row-reverse space-x-20 space-x-reverse">
+                {firstRow.map((product) => (
+                  <ProductCard product={product} translate={translateX} key={product.title} />
+                ))}
+              </motion.div>
+              <motion.div className="mb-20 flex flex-row space-x-20">
+                {secondRow.map((product) => (
+                  <ProductCard product={product} translate={translateXReverse} key={product.title} />
+                ))}
+              </motion.div>
+              <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
+                {thirdRow.map((product) => (
+                  <ProductCard product={product} translate={translateX} key={product.title} />
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

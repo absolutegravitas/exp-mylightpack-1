@@ -36,11 +36,11 @@ function Header1() {
       href: "/roadmap",
       description: "",
     },
-    {
-      title: "Blog",
-      href: "/blog",
-      description: "",
-    },
+    // {
+    //   title: "Blog",
+    //   href: "/blog",
+    //   description: "",
+    // },
     // {
     //   title: "About",
     //   href: "/#about",
@@ -51,7 +51,7 @@ function Header1() {
   const [isOpen, setOpen] = useState(false)
   return (
     <header className="bg-background fixed top-0 left-0 z-40 w-full">
-      <div className="gap- relative container mx-auto flex min-h-20 flex-row items-center lg:grid lg:grid-cols-3">
+      <div className="relative container mx-auto flex min-h-20 flex-row items-center gap-3 lg:grid lg:grid-cols-3">
         <div className="hidden flex-row items-center justify-start gap-4 lg:flex">
           <NavigationMenu className="flex items-start justify-start">
             <NavigationMenuList className="flex flex-row justify-start gap-1">
@@ -72,9 +72,9 @@ function Header1() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="flex lg:justify-center">
-          <p className="font-semibold">
-            <Logo className="inline-block h-14 w-14 pr-2" />
+        <div className="ml-3 flex lg:justify-center">
+          <p className="flex items-center align-middle font-semibold">
+            <Logo className="h-10 w-10 pr-2" />
             {`myLightPack`}
           </p>
         </div>

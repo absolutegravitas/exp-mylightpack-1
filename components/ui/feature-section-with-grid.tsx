@@ -10,7 +10,7 @@ function Feature() {
               <Badge>Platform</Badge>
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="font-regular max-w-xl text-left text-3xl tracking-tighter md:text-5xl">Something new!</h2>
+              <h2 className="font-regular max-w-xl text-left text-3xl tracking-tighter md:text-5xl">Something as!</h2>
               <p className="text-muted-foreground max-w-xl text-left text-lg leading-relaxed tracking-tight lg:max-w-lg">
                 Managing a small business today is already tough.
               </p>
