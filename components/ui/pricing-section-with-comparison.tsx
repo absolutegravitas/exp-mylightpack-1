@@ -26,7 +26,8 @@ const plans = [
   },
   {
     name: "Lifetime",
-    description: "One-time payment for lifetime access to all current and future features. Perfect for supportng us.",
+    description:
+      "One-time payment for lifetime access to all current and future features. Support our work with a one-off payment.",
     price: 100,
     interval: "once",
     buttonText: "Get Started",
@@ -40,60 +41,45 @@ const features = [
     category: "Gear",
     items: [
       {
-        name: "Create and manage all your Gear and track an unlimited number of items",
+        name: "Create and manage all your Gear and track an unlimited number of items.  Add photos and notes to keep things organised.",
         values: {
           solo: "Unlimited",
           groups: "Unlimited",
           lifetime: "Unlimited",
         },
       },
+      // {
+      //   name: "Store item photos, receipts and other important info",
+      //   values: {
+      //     solo: "5 per item",
+      //     groups: "10 per item",
+      //     lifetime: "20 per item",
+      //   },
+      // },
       {
-        name: "Store item photos, receipts and other important info",
-        values: {
-          solo: "5 per item",
-          groups: "10 per item",
-          lifetime: "20 per item",
-        },
-      },
-      {
-        name: "Organise your gear into ready to go Kits to use in Lists",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Create Kit Templates to use later or share with other myLightPack users",
+        name: "Organise your gear into pre-defined Kits to use in Lists or share with other myLightPack users",
         values: {
           solo: true,
           groups: true,
           lifetime: true,
         },
       },
-      {
-        name: "Fast searching. Customizable tags, categories, and views",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
+
+      // {
+      //   name: "Fast searching. Customizable tags, categories, and views",
+      //   values: {
+      //     solo: true,
+      //     groups: true,
+      //     lifetime: true,
+      //   },
+      // },
     ],
   },
   {
     category: "Lists",
     items: [
       {
-        name: "Create & track an unlimited number of List for all seasons and all situations",
-        values: {
-          solo: "Unlimited",
-          groups: "Unlimited",
-          lifetime: "Unlimited",
-        },
-      },
-      {
-        name: "Build your Lists easily from individual items, Kits or reuse public Lists from other users",
+        name: "Create & track your packing Lists for all seasons and situations. Add notes and other info to keep things organised.",
         values: {
           solo: true,
           groups: true,
@@ -101,7 +87,7 @@ const features = [
         },
       },
       {
-        name: "Create List Templates to use later or share with other myLightPack users",
+        name: "Build your Lists easily from items, Kits or re-use public Lists from other users",
         values: {
           solo: true,
           groups: true,
@@ -110,15 +96,6 @@ const features = [
       },
       {
         name: "Share your lists publicly or privately and get feedback, do pack shakedowns, or use as shopping checklists",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
-
-      {
-        name: "Fast searching. Customizable tags, categories, and views",
         values: {
           solo: true,
           groups: true,
@@ -189,7 +166,7 @@ const features = [
     ],
   },
   {
-    category: "Other",
+    category: "",
     items: [
       {
         name: "Offline Mode. myLightPack works everywhere the Internet doesn't",
@@ -199,86 +176,70 @@ const features = [
           lifetime: true,
         },
       },
+    ],
+  },
+  // {
+  //   category: "Coming Soon (Signup to Vote and Comment on Future Features)",
+  //   items: [
+  //     {
+  //       name: "Import Lists from LighterPack",
+  //       values: {
+  //         solo: "Coming Soon",
+  //         groups: "Coming Soon",
+  //         lifetime: "Coming Soon",
+  //       },
+  //     },
+  //     // {
+  //     //   name: "Install as app for ready and quick access on your phone",
+  //     //   values: {
+  //     //     solo: "Coming Soon",
+  //     //     groups: "Coming Soon",
+  //     //     lifetime: "Coming Soon",
+  //     //   },
+  //     // },
+  //     {
+  //       name: "Print-friendly Checklists",
+  //       values: {
+  //         solo: "Coming Soon",
+  //         groups: "Coming Soon",
+  //         lifetime: "Coming Soon",
+  //       },
+  //     },
+  //     {
+  //       name: "List Versions & Rollback",
+  //       values: {
+  //         solo: "Coming Soon",
+  //         groups: "Coming Soon",
+  //         lifetime: "Coming Soon",
+  //       },
+  //     },
 
-      {
-        name: "Secure Passwordless Login",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Get myLightPack to work the way you want. Vote and Comment on Future Features",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
-    ],
-  },
-  {
-    category: "Coming Soon (Signup to Vote and Comment on Future Features)",
-    items: [
-      {
-        name: "Import Lists from LighterPack",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "Install as app for ready and quick access on your phone",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "List Versions & Rollback",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "Print-friendly Checklists",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "AI-based List Construction",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "Multilingual support - use myLightPack in 20+ languages",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-      {
-        name: "Full Data Backup & Export - You own your data at all times",
-        values: {
-          solo: "Coming Soon",
-          groups: "Coming Soon",
-          lifetime: "Coming Soon",
-        },
-      },
-    ],
-  },
+  //     // {
+  //     //   name: "AI-based List Construction",
+  //     //   values: {
+  //     //     solo: "Coming Soon",
+  //     //     groups: "Coming Soon",
+  //     //     lifetime: "Coming Soon",
+  //     //   },
+  //     // },
+  //     {
+  //       name: "Multilingual support - use myLightPack in 20+ languages",
+  //       values: {
+  //         solo: "Coming Soon",
+  //         groups: "Coming Soon",
+  //         lifetime: "Coming Soon",
+  //       },
+  //     },
+  //     {
+  //       name: "Full Data Backup & Export - You own your data at all times",
+  //       values: {
+  //         solo: "Coming Soon",
+  //         groups: "Coming Soon",
+  //         lifetime: "Coming Soon",
+  //       },
+  //     },
+  //   ],
+  // },
 ]
 export default function Pricing() {
   const renderValue = (value: boolean | string) => {
@@ -327,12 +288,9 @@ export default function Pricing() {
 
             {/* Feature categories and items */}
             {features.map((category) => (
-              <>
+              <React.Fragment key={`category-${category.category || "default"}`}>
                 {/* Category header */}
-                <div
-                  key={`category-${category.category}`}
-                  className="bg-muted/50 col-span-3 px-3 py-4 lg:col-span-1 lg:px-6"
-                >
+                <div className="bg-muted/50 col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
                   <b>{category.category}</b>
                 </div>
                 <div className="bg-muted/50"></div>
@@ -352,7 +310,7 @@ export default function Pricing() {
                     </div>
                   </React.Fragment>
                 ))}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>

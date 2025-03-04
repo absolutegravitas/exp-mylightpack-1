@@ -1,56 +1,42 @@
-import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
-} from "@tabler/icons-react"
+import { Boxes, CloudOff, Image, ListChecks, ListPlus, Lock, Package, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "Built for developers",
-      description: "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <IconTerminal2 />,
+      title: "Unlimited Gear Items",
+      description: "Create and manage all your Gear and track an unlimited number of items",
+      icon: <Boxes />,
     },
     {
-      title: "Ease of use",
-      description: "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <IconEaseInOut />,
+      title: "Photos and Receipts",
+      description: "Store item photos, receipts and other important info",
+      icon: <Image />,
     },
     {
-      title: "Pricing like no other",
-      description: "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
+      title: "Gear Kits",
+      description: "Organise your gear into ready to go Kits to use in Lists",
+      icon: <Package />,
     },
     {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
+      title: "Unlimited Lists",
+      description: "Create &amp; track an unlimited number of List for all seasons and all situations",
+      icon: <ListChecks />,
     },
     {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
+      title: "Easy List Builder",
+      description: "Build your Lists easily from individual items, Kits or reuse public Lists from other users",
+      icon: <ListPlus />,
     },
     {
-      title: "24/7 Customer Support",
-      description: "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <IconHelp />,
+      title: "Unlimited Groups",
+      description: "Create &amp; manage unlimited groups for different activities, trips, or organizations",
+      icon: <Users />,
     },
     {
-      title: "Money back guarantee",
-      description: "If you donot like EveryAI, we will convince you to like us.",
-      icon: <IconAdjustmentsBolt />,
-    },
-    {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <IconHeart />,
+      title: "Offline Mode",
+      description: "myLightPack works everywhere the Internet doesn't",
+      icon: <CloudOff />,
     },
   ]
   return (
