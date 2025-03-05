@@ -16,10 +16,11 @@ import { useEffect, useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { TextLoop } from "@/components/ui/text-loop"
 import { Logo } from "../Logo/Logo"
+import { TextEffect } from "@/components/ui/text-effect"
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0)
-  const titles = useMemo(() => ["gram", "ounce", "kilo", "pound", "litre", "gallon", "cup", "teaspoon", "bowl"], [])
+  const titles = useMemo(() => ["gram", "ounce", "kilo", "pound", "litre"], [])
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -99,9 +100,19 @@ function Hero() {
                 </TextLoop>
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl text-center text-lg leading-normal tracking-tight md:text-xl">
-              {`Track your gear and optimize your pack weight for your next adventure. For hikes, backpacking, travel.`}
+            <p className="text-muted-foreground max-w-3xl text-center text-lg leading-normal tracking-tight md:text-xl">
+              {`Track your gear and optimize your pack weight for your next adventure. For solo hikers, groups and other travellers obsessed with traveling right and traveling light.`}
             </p>
+            {/* <TextEffect
+              per="word"
+              as="h3"
+              preset="blur"
+              delay={1}
+              speedReveal={1}
+              className="text-muted-foreground max-w-3xl text-center text-lg leading-normal tracking-tight md:text-xl"
+            >
+              For solo hikers, groups, or general travellers obsessed with traveling right and traveling light.
+            </TextEffect> */}
           </div>
           <div className="flex flex-row gap-3">
             <Link href="/demo">
