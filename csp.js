@@ -62,7 +62,12 @@ const policies = {
     "https://assets.aceternity.com",
     "https://html.tailus.io/",
     "https://shadcnblocks.com/",
-
+    "https://assets.vercel.com",
+    "https://tailwindcss.com",
+    "https://supabase.com",
+    "https://cdn.sanity.io",
+    "https://astro.build",
+    // "
     // login with google, facebook
     "https://lh3.googleusercontent.com",
     "https://platform-lookaside.fbsbx.com",
