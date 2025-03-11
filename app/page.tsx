@@ -1,17 +1,14 @@
-import { Feature197Demo } from "@/components/landing/AccordionFAQ"
-import CommunitySection from "@/components/landing/Community"
-import { FeaturesSectionWithHover } from "@/components/landing/FeaturesSection"
-import TestimonialsSection from "@/components/landing/TestimonialsSection"
+import { Feature197Demo } from "@/components/blocks/AccordionFAQ"
+
 import { Hero } from "@/components/ui/animated-hero"
 import { Container } from "@/components/ui/container"
-import { FAQ } from "@/components/ui/faq"
-import { Feature } from "@/components/ui/feature-section-with-grid"
-import { Header1 } from "@/components/ui/header"
-import { HeroParallax } from "@/components/ui/hero-parallax"
-import FeaturesKeyChecklist from "@/components/ui/hero-with-group-of-images-text-and-two-buttons"
+import { FAQ } from "@/components/blocks/faq"
+import { Feature } from "@/components/blocks/feature-section-with-grid"
+import FeaturesKeyChecklist from "@/components/blocks/FeatureImageRightBlock"
+import { Header1 } from "@/components/blocks/header"
+import { HeroParallax } from "@/components/blocks/hero-parallax"
 import { InView } from "@/components/ui/in-view"
-import { LatestPosts } from "@/components/ui/latest-posts"
-import Pricing from "@/components/ui/pricing-section-with-comparison"
+import Pricing from "@/components/blocks/pricing-section-with-comparison"
 
 export default function LandingPage() {
   return (
@@ -52,7 +49,7 @@ export default function LandingPage() {
         <FAQ />
       </InView>
 
-      <InView
+      {/* <InView
         variants={{
           hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
           visible: { opacity: 1, y: 0, filter: "blur(0px)" },
@@ -61,7 +58,7 @@ export default function LandingPage() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <Feature />
-      </InView>
+      </InView> */}
       {/* <InView
         variants={{
           hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
@@ -72,7 +69,7 @@ export default function LandingPage() {
       >
         <LatestPosts />
       </InView> */}
-      <InView
+      {/* <InView
         variants={{
           hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
           visible: { opacity: 1, y: 0, filter: "blur(0px)" },
@@ -81,7 +78,7 @@ export default function LandingPage() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <Feature197Demo />
-      </InView>
+      </InView> */}
     </Container>
   )
 }

@@ -1,11 +1,10 @@
 import "styles/tailwind.css"
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
-import { Github, Hexagon, Twitter } from "lucide-react"
 import { Geist, Geist_Mono } from "next/font/google"
+import { Header1 } from "@/components/blocks/header"
 import { CookieConsent } from "@/components/cookie-consent"
-import { Logo } from "@/components/Logo/Logo"
 import { Footer } from "@/components/ui/footer"
-import { Header1 } from "@/components/ui/header"
+import { Logo } from "@/components/ui/logo"
 import { PostHogProvider } from "./provider"
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,13 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <PostHogProvider>
-            {/* <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn> */}
+            <Header1 />
             <CookieConsent
               variant="default"
               // onAcceptCallback={() => {
@@ -80,11 +73,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ]}
               mainLinks={[
                 { href: "/home", label: "Home" },
-                { href: "/features", label: "Features" },
-                { href: "/pricing", label: "Pricing" },
-                // { href: "/blog", label: "Blog" },
-                { href: "/roadmap", label: "Roadmap" },
-                { href: "/release-notes", label: "Release Notes" },
+                // { href: "/features", label: "Features" },
+                // { href: "/pricing", label: "Pricing" },
+                { href: "/faqs", label: "FAQs" },
+                { href: "/blog", label: "Blog" },
+                { href: "/feature-request", label: "Feature Request" },
+                { href: "/changelog", label: "Changelog" },
                 { href: "/privacy", label: "Privacy" },
                 { href: "/terms", label: "Terms" },
               ]}
