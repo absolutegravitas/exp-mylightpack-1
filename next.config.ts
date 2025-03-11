@@ -39,9 +39,12 @@ const config: NextConfig = {
       { protocol: "https", hostname: "**cdn.jsdelivr.net**" },
       { protocol: "https", hostname: "**images.unsplash.com**" },
       { protocol: "https", hostname: "**aceternity.com**" },
-
+      { protocol: "https", hostname: "**assets.vercel.com**" },
+      { protocol: "https", hostname: "**tailwindcss.com**" },
+      { protocol: "https", hostname: "**supabase.com**" },
+      { protocol: "https", hostname: "**cdn.sanity.io**" },
+      { protocol: "https", hostname: "**astro.build**" },
       { protocol: "https", hostname: "**placehold.co**" },
-
       { protocol: "https", hostname: "**lh3.googleusercontent.com**" }, // for user avatars - google
       { protocol: "https", hostname: "**media.licdn.com**" }, // for user avatars - linkedin
       { protocol: "https", hostname: "**platform-lookaside.fbsbx.com**" }, // for user avatars - facebook
