@@ -22,6 +22,11 @@ function Header1() {
       description: "",
     },
     {
+      title: "How It Works",
+      href: "/#how-it-works",
+      description: "",
+    },
+    {
       title: "Features",
       href: "/#features",
       description: "",
@@ -74,10 +79,12 @@ function Header1() {
           </NavigationMenu>
         </div>
         <div className="ml-3 flex lg:justify-center">
-          <p className="flex items-center align-middle font-semibold">
-            <Logo className="h-10 w-10 pr-2" />
-            {`myLightPack`}
-          </p>
+          <Link href={"/"}>
+            <p className="flex items-center align-middle font-semibold">
+              <Logo className="h-10 w-10 pr-2" />
+              {`myLightPack`}
+            </p>
+          </Link>
         </div>
         <div className="flex w-full justify-end gap-4">
           {/* <div className="hidden border-r md:inline"></div> */}
@@ -93,21 +100,27 @@ function Header1() {
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
           {isOpen && (
-            <div className="bg-background absolute top-20 right-0 container flex w-full flex-col gap-8 border-t py-4 shadow-lg">
-              {navigationItems.map((item) => (
-                <div key={item.title}>
-                  <div className="flex flex-col gap-2">
-                    {item.href ? (
-                      <Link href={item.href} className="flex items-center justify-between">
-                        <span className="text-lg">{item.title}</span>
-                        <MoveRight className="text-muted-foreground h-4 w-4 stroke-1" />
-                      </Link>
-                    ) : (
-                      <p className="text-lg">{item.title}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
+            <div className="bg-background absolute top-20 right-0 w-full px-5 shadow-lg">
+              <div className="container mx-auto border-t py-4">
+                <nav className="flex flex-col space-y-4">
+                  {navigationItems.map((item) => (
+                    <div key={item.title} className="px-2">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          className="hover:bg-accent flex items-center justify-center rounded-md p-2"
+                          onClick={() => setOpen(false)}
+                        >
+                          <span className="text-lg font-medium">{item.title}</span>
+                          {/* <MoveRight className="#text-muted-foreground h-4 w-4" /> */}
+                        </Link>
+                      ) : (
+                        <p className="p-2 text-sm font-medium">{item.title}</p>
+                      )}
+                    </div>
+                  ))}
+                </nav>
+              </div>
             </div>
           )}
         </div>
