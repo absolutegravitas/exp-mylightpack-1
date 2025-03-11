@@ -23,6 +23,7 @@
     "react-is": "^19.0.0-rc-69d4b800-20241021"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.24.1",
     "@clerk/elements": "^0.22.23",
     "@clerk/nextjs": "^6.12.1",
     "@million/lint": "^1.0.14",
@@ -84,6 +85,7 @@
     "posthog-js": "^1.223.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.1",
     "resend": "^4.1.2",
     "sonner": "^1.7.4",
@@ -144,7 +146,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@10.5.0",
+  "packageManager": "pnpm@10.6.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@clerk/shared",
