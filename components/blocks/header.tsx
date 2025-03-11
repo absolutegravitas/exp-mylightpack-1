@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Menu, MoveRight, X } from "lucide-react"
+import { ArrowRight, LogInIcon, Menu, MoveRight, X } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -67,7 +67,7 @@ function Header1() {
                     <NavigationMenuLink href={item.href}>
                       <Button
                         variant="ghost"
-                        className="cursor-pointer text-sm font-bold hover:tracking-wide hover:underline hover:underline-offset-4"
+                        className="#hover:tracking-tight cursor-pointer text-sm font-bold hover:underline hover:underline-offset-4 md:text-base"
                       >
                         {item.title}
                       </Button>
@@ -80,7 +80,7 @@ function Header1() {
         </div>
         <div className="ml-3 flex lg:justify-center">
           <Link href={"/"}>
-            <p className="flex items-center align-middle font-semibold">
+            <p className="flex items-center align-middle text-sm font-semibold md:text-xl">
               <Logo className="h-10 w-10 pr-2" />
               {`myLightPack`}
             </p>
@@ -88,10 +88,15 @@ function Header1() {
         </div>
         <div className="flex w-full justify-end gap-4">
           {/* <div className="hidden border-r md:inline"></div> */}
-          <Button variant="outline">Sign In</Button>
-          <Link href="/#features">
-            <Button>
-              Get started <ArrowRight className="h-5 w-5 pl-2" />
+          <Link href="/sign-in" className="cursor-pointer">
+            <Button variant="outline">
+              <span className="md:text-lg">{`Sign In `}</span>
+              <LogInIcon className="h-5 w-5 md:h-6 md:w-6" />
+            </Button>
+          </Link>
+          <Link href="/#features" className="cursor-pointer">
+            <Button className="md:text-lg">
+              Get started <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
             </Button>
           </Link>
         </div>
