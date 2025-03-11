@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Logo } from "../Logo/Logo"
 
 interface FooterProps {
   logo: React.ReactNode
