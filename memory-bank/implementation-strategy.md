@@ -153,3 +153,88 @@ The following GitHub issues have been incorporated into the plan:
 ## 7. Conclusion
 
 This strategy provides a clear roadmap for the development of myLightPack. It ensures that all features are implemented systematically, with dependencies and milestones clearly defined.
+
+---
+
+## 8. Blog Post Implementation Plan
+
+### 8.1. Project Setup & Markdown Handling:
+
+    - Create a directory `app/blog/posts` to store markdown files.
+    - Choose `react-markdown` and `remark-gfm` for markdown rendering and Github-flavored markdown support.
+    - Install dependencies: `pnpm add react-markdown remark-gfm gray-matter`. `gray-matter` will be used to parse frontmatter from markdown files for metadata.
+
+### 8.2. Blog Post Structure & Metadata:
+
+    - Define a clear structure for markdown files, including frontmatter for metadata (title, date, description, image, tags, etc.) and the post content.
+    - Example Markdown File Structure (`app/blog/posts/my-first-post.md`):
+    \`\`\`markdown
+    ---
+    title: My First Blog Post
+    date: 2024-03-11
+    description: This is a short description of my first blog post.
+    image: /images/blog/my-first-post.jpg
+    tags: [nextjs, markdown, blog]
+    ---
+
+    # Welcome to my first blog post!
+
+    This is the main content of my blog post...
+    \`\`\`
+
+### 8.3. Blog Post Detail Page (`app/blog/[postId]/page.tsx`):
+
+    - Modify `app/blog/[postId]/page.tsx` to:
+        - Dynamically read markdown files from `app/blog/posts` directory based on `postId`.
+        - Parse frontmatter using `gray-matter` to extract metadata.
+        - Render markdown content using `react-markdown` and `remark-gfm`.
+        - Implement SEO metadata using Next.js `Metadata` API, including OG cards.
+        - Create a component to display blog post details (title, date, content, tags, etc.) with basic styling.
+
+### 8.4. Blog Index Page (`app/blog/page.tsx`):
+
+    - Modify `app/blog/page.tsx` to:
+        - Read all markdown files from `app/blog/posts` directory.
+        - Parse frontmatter from each file to extract metadata (title, date, description).
+        - Sort posts by date in descending order.
+        - Display a list of blog posts with title, excerpt (description), and date.
+        - Link each post to its detail page (`/blog/[postId]`).
+        - Implement pagination or infinite scroll if needed for a large number of posts.
+
+### 8.5. Image Handling:
+
+    - Decide on a strategy for handling images in markdown files.
+        - Option 1: Store images in `public/images/blog` and reference them in markdown using `/images/blog/[image-name.jpg]`.
+        - Option 2: Use a CDN or external image hosting service for more advanced image management. (For now, let's assume Option 1 for simplicity).
+        - **Decision**: Use CDN for images. User will provide specific URLs in markdown files.
+
+### 8.6. Code Mode Implementation:
+
+    - Switch to Code mode to implement the plan step-by-step.
+    - Create necessary components and utilities.
+    - Update `app/blog/[postId]/page.tsx` and `app/blog/page.tsx` as planned.
+    - Add example markdown posts in `app/blog/posts` for testing.
+    - Test the blog functionality and styling.
+
+\`\`\`mermaid
+graph LR
+A[User Request: Enable Blog Posts from Markdown] --> B{Architect Mode: Plan};
+B --> C[1. Project Setup & Markdown Handling];
+C --> D[2. Blog Post Structure & Metadata];
+D --> E[3. Blog Post Detail Page];
+E --> F[4. Blog Index Page];
+F --> G[5. Image Handling];
+G --> H[6. Code Mode Implementation];
+H --> I{Code Mode: Implement Plan};
+I --> J[Create app/blog/posts directory];
+J --> K[Install react-markdown, remark-gfm, gray-matter];
+K --> L[Modify app/blog/[postId]/page.tsx];
+L --> M[Modify app/blog/page.tsx];
+M --> N[Add example markdown posts];
+N --> O[Test Blog Functionality];
+O --> P{User Review Plan};
+P -- Approve Plan --> I;
+P -- Request Changes --> B;
+I --> Q[Switch to Code Mode];
+Q --> R[Code Mode: Implement Solution];
+\`\`\`
