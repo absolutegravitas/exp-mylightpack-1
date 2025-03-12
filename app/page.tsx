@@ -1,85 +1,61 @@
-import { Feature197Demo } from "@/components/blocks/AccordionFAQ"
-
-import { Hero } from "@/components/ui/animated-hero"
-import { Container } from "@/components/ui/container"
-import { FAQ } from "@/components/blocks/faq"
-import { Feature } from "@/components/blocks/feature-section-with-grid"
+import { UseInViewOptions } from "motion/react"
+import FAQ from "@/components/blocks/faq"
+import FeatureGroup from "@/components/blocks/FeatureGroup"
 import FeaturesKeyChecklist from "@/components/blocks/FeatureImageRightBlock"
+import FeatureRoadmap from "@/components/blocks/FeatureRoadmap"
+import FeaturesHowItWorks from "@/components/blocks/FeaturesHowItWorks"
+import FeaturesMain from "@/components/blocks/FeaturesMain"
 import { Header1 } from "@/components/blocks/header"
 import { HeroParallax } from "@/components/blocks/hero-parallax"
-import { InView } from "@/components/ui/in-view"
 import Pricing from "@/components/blocks/pricing-section-with-comparison"
+import { Hero } from "@/components/ui/animated-hero"
+import { Container } from "@/components/ui/container"
+import { InView } from "@/components/ui/in-view"
 
 export default function LandingPage() {
+  const inViewProps = {
+    variants: {
+      hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
+      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+    },
+    viewOptions: {
+      margin: "0px 0px -200px 0px" as UseInViewOptions["margin"],
+    },
+    transition: { duration: 0.3, ease: "easeInOut" },
+  }
+
   return (
-    <Container className="flex flex-col items-center justify-center">
-      <Header1 />
-      <Hero />
-      {/* <FeaturesSectionWithHover /> */}
+    <main>
+      <Container className="flex flex-col items-center justify-center">
+        <Header1 />
+        <Hero />
+      </Container>
       <HeroParallax products={products} />
 
-      <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <FeaturesKeyChecklist />
-      </InView>
-      <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <Pricing />
-      </InView>
-      <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <FAQ />
-      </InView>
-
-      {/* <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <Feature />
-      </InView> */}
-      {/* <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <LatestPosts />
-      </InView> */}
-      {/* <InView
-        variants={{
-          hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
-          visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-        }}
-        viewOptions={{ margin: "0px 0px -200px 0px" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <Feature197Demo />
-      </InView> */}
-    </Container>
+      <Container className="flex flex-col items-center justify-center">
+        <InView {...inViewProps}>
+          <FeatureGroup />
+        </InView>
+        <InView {...inViewProps}>
+          <FeaturesMain />
+        </InView>
+        <InView {...inViewProps}>
+          <FeaturesHowItWorks />
+        </InView>
+        <InView {...inViewProps}>
+          <FeaturesKeyChecklist />
+        </InView>
+        <InView {...inViewProps}>
+          <Pricing />
+        </InView>
+        <InView {...inViewProps}>
+          <FAQ />
+        </InView>
+        <InView {...inViewProps}>
+          <FeatureRoadmap />
+        </InView>
+      </Container>
+    </main>
   )
 }
 
