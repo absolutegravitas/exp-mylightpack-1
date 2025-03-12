@@ -74,18 +74,18 @@ export function CookieConsent({
                 By clicking
                 <span className="font-medium text-black dark:text-white"> Accept</span>, you agree to our use of
                 cookies.{" "}
-                <Link href="/terms" className="text-xs underline">
-                  Terms
+                <Link href="/privacy" className="text-xs underline">
+                  See our privacy policy.{" "}
                 </Link>
               </span>
               <br />
             </p>
           </div>
-          <div className="border-border dark:bg-background/20 flex flex-col gap-2 border-t p-3 sm:flex-row sm:p-4 sm:py-5">
-            <Button onClick={accept} className="w-full">
+          <div className="border-border dark:bg-background/20 flex flex-col gap-2 border-t p-3 sm:flex-col sm:p-4 sm:py-5">
+            <Button onClick={accept} className="w-full cursor-pointer" variant="default">
               Accept
             </Button>
-            <Button onClick={decline} className="w-full" variant="secondary">
+            <Button onClick={decline} className="w-full cursor-pointer" variant="secondary">
               Decline
             </Button>
           </div>
@@ -114,10 +114,10 @@ export function CookieConsent({
           </p>
         </div>
         <div className="mt-2 flex flex-col items-center gap-2 border-t p-3 sm:flex-row">
-          <Button onClick={accept} className="h-8 w-full text-xs sm:h-9 sm:text-sm">
+          <Button onClick={accept} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm">
             Accept
           </Button>
-          <Button onClick={decline} className="h-8 w-full text-xs sm:h-9 sm:text-sm" variant="outline">
+          <Button onClick={decline} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm" variant="outline">
             Decline
           </Button>
         </div>

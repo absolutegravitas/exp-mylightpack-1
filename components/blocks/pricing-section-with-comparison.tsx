@@ -104,80 +104,68 @@ const features = [
       },
     ],
   },
-  {
-    category: "Groups",
-    items: [
-      {
-        name: "Create & manage unlimited groups for different activities, trips, or organizations",
-        values: {
-          solo: false,
-          groups: "Unlimited",
-          lifetime: "Unlimited",
-        },
-      },
-      {
-        name: "Add and manage group members",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Dedicated group spaces with shared gear libraries and lists",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Share and collaborate on group lists with members",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Track gear assignments and manage equipment distribution within groups",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Create group templates for common activities or trip types",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-      {
-        name: "Analyse how your group is sharing gear across members and optimise carried weight",
-        values: {
-          solo: false,
-          groups: true,
-          lifetime: true,
-        },
-      },
-    ],
-  },
-  {
-    category: "",
-    items: [
-      {
-        name: "Offline Mode. myLightPack works everywhere the Internet doesn't",
-        values: {
-          solo: true,
-          groups: true,
-          lifetime: true,
-        },
-      },
-    ],
-  },
+  // {
+  //   category: "Groups",
+  //   items: [
+  //     {
+  //       name: "Create & manage unlimited groups for different activities, trips, or organizations",
+  //       values: {
+  //         solo: false,
+  //         groups: "Unlimited",
+  //         lifetime: "Unlimited",
+  //       },
+  //     },
+  //     {
+  //       name: "Add and manage group members",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //     {
+  //       name: "Dedicated group spaces with shared gear libraries and lists",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //     {
+  //       name: "Share and collaborate on group lists with members",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //     {
+  //       name: "Track gear assignments and manage equipment distribution within groups",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //     {
+  //       name: "Create group templates for common activities or trip types",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //     {
+  //       name: "Analyse how your group is sharing gear across members and optimise carried weight",
+  //       values: {
+  //         solo: false,
+  //         groups: true,
+  //         lifetime: true,
+  //       },
+  //     },
+  //   ],
+  // },
+
   // {
   //   category: "Coming Soon (Signup to Vote and Comment on Future Features)",
   //   items: [
@@ -250,7 +238,7 @@ export default function Pricing() {
   }
 
   return (
-    <div id="pricing" className="w-full py-20 lg:py-40">
+    <div id="pricing" className="w-full pt-20 lg:pt-40">
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <Badge>Clear and Transparent Pricing</Badge>
@@ -279,17 +267,16 @@ export default function Pricing() {
             </div>
 
             {/* Features header */}
-            <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
+            {/* <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
               <b>Features</b>
             </div>
             <div></div>
             <div></div>
-            <div></div>
+            <div></div> */}
 
             {/* Feature categories and items */}
-            {features.map((category) => (
+            {/* {features.map((category) => (
               <React.Fragment key={`category-${category.category || "default"}`}>
-                {/* Category header */}
                 <div className="bg-muted/50 col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
                   <b>{category.category}</b>
                 </div>
@@ -297,7 +284,6 @@ export default function Pricing() {
                 <div className="bg-muted/50"></div>
                 <div className="bg-muted/50"></div>
 
-                {/* Category items */}
                 {category.items.map((item) => (
                   <React.Fragment key={`item-${item.name}`}>
                     <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">{item.name}</div>
@@ -311,7 +297,7 @@ export default function Pricing() {
                   </React.Fragment>
                 ))}
               </React.Fragment>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

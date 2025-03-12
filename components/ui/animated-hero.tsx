@@ -102,7 +102,7 @@ function Hero() {
               </span>
             </h2>
             <p className="text-muted-foreground max-w-3xl text-center text-lg leading-normal tracking-tight md:text-xl">
-              {`Track your gear and optimize your pack weight for your next adventure. For solo hikers, groups and other travellers obsessed with traveling right and traveling light.`}
+              {`Track your gear and optimize your pack weight for your next adventure. For hikers, groups and all travellers obsessed traveling light.`}
             </p>
             {/* <TextEffect
               per="word"
@@ -118,7 +118,7 @@ function Hero() {
           <div className="flex flex-row gap-3">
             <Link href="/demo">
               <Button size="lg" className="gap-4" variant="outline">
-                Test Drive <CarIcon className="h-4 w-4" />
+                Test Drive <CarIcon className="h-6 w-6" />
               </Button>
             </Link>
             <Link href="/#pricing">
@@ -130,49 +130,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      <section className="container mx-auto">
-        <div className="flex flex-col items-center text-center">
-          <h2 className="text-3xl font-bold">Trusted by these companies</h2>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 lg:gap-12">
-            <Image
-              src="https://assets.vercel.com/image/upload/v1681812111/logos/vercel-logotype-dark.svg"
-              alt="Vercel logo"
-              width={109}
-              height={48}
-              className="h-7 w-auto"
-            />
-            <Image
-              src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype.ed60a6f85c663923c4d6.svg"
-              alt="Tailwind logo"
-              width={109}
-              height={48}
-              className="h-5 w-auto"
-            />
-            <Image
-              src="https://supabase.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsupabase-logo-wordmark--dark.808c310a.svg&w=384&q=75"
-              alt="Supabase logo"
-              width={109}
-              height={48}
-              className="h-6 w-auto"
-            />
-            <Image
-              src="https://cdn.sanity.io/images/599r6htc/localized/46a76c802176eb17b04e12108de7e7e0f3736dc6-1024x312.png"
-              alt="Figma logo"
-              width={109}
-              height={48}
-              className="h-5 w-auto"
-            />
-            <Image
-              src="https://astro.build/assets/press/full-logo-dark.svg"
-              alt="Astro logo"
-              width={109}
-              height={48}
-              className="h-6 w-auto"
-            />
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

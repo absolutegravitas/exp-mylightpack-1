@@ -96,7 +96,8 @@ function Header1() {
           </Link>
           <Link href="/#features" className="cursor-pointer">
             <Button className="md:text-lg">
-              Get started <ArrowRight className="h-5 w-5 md:h-6 md:w-6" />
+              Sign Up
+              {/* <ArrowRight className="h-5 w-5 md:h-6 md:w-6" /> */}
             </Button>
           </Link>
         </div>

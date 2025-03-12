@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const FeatureTabs = () => {
   return (
@@ -23,7 +23,7 @@ const FeatureTabs = () => {
               aria-orientation="horizontal"
               className="bg-muted text-muted-foreground flex h-auto w-fit flex-wrap items-center justify-center gap-x-2 rounded-lg p-2"
               tabIndex={0}
-              orientation="horizontal"
+              // orientation="horizontal"
               style={{ outline: "none" }}
             >
               <TabsTrigger

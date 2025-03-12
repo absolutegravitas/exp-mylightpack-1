@@ -35,7 +35,7 @@ export function FeaturesSectionWithHoverEffects() {
     },
     {
       title: "Offline Mode",
-      description: "myLightPack works everywhere the Internet doesn't",
+      description: "works everywhere the Internet doesn't",
       icon: <CloudOff />,
     },
   ]

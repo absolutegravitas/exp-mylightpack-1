@@ -20,7 +20,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
 
   const xRef = useRef(0)
   const yRef = useRef(0)
-  const frameRef = useRef<number>()
+  const frameRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     const animate = () => {
@@ -137,6 +137,10 @@ const CarouselControl = ({ type, title, handleClick }: CarouselControlProps) => 
 
 interface CarouselProps {
   slides: SlideData[]
+  opts?: {
+    loop?: boolean
+  }
+  children: React.ReactNode
 }
 
 export default function Carousel({ slides }: CarouselProps) {
@@ -181,3 +185,7 @@ export default function Carousel({ slides }: CarouselProps) {
     </div>
   )
 }
+export const CarouselContent = () => null
+export const CarouselItem = () => null
+export const CarouselNext = () => null
+export const CarouselPrevious = () => null
