@@ -1,11 +1,14 @@
 import "styles/tailwind.css"
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import { Geist, Geist_Mono } from "next/font/google"
-import { Header1 } from "@/components/blocks/header"
+import Script from "next/script"
+import { Footer } from "@/components/blocks/menus/footer"
+import { Header1 } from "@/components/blocks/menus/header"
 import { CookieConsent } from "@/components/cookie-consent"
-import { Footer } from "@/components/ui/footer"
+import { ReactScan } from "@/components/react-scan"
 import { Logo } from "@/components/ui/logo"
 import { PostHogProvider } from "./provider"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,6 +20,8 @@ const geistMono = Geist_Mono({
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Determine the Vercel environment.
+  const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV
   return (
     <ClerkProvider
       appearance={{
@@ -34,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }}
     >
       <html lang="en">
+        <ReactScan />
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <PostHogProvider>
             <Header1 />

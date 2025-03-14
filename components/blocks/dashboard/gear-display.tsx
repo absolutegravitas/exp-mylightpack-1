@@ -2,6 +2,7 @@
 
 import { Copy, Download, File, FileText, MoreVertical, Pencil, Reply, Save, Scale, Trash2 } from "lucide-react"
 import * as React from "react"
+import { FileUpload } from "@/components/blocks/dashboard/file-upload"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -15,7 +16,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { type GearDocument, type GearImage, type GearItem, type Kit, useGear } from "@/hooks/use-gear"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
-import { FileUpload } from "./file-upload"
 
 export function GearDisplay() {
   const [isEditing, setIsEditing] = React.useState(false)

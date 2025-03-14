@@ -4,6 +4,7 @@ import { ArrowRight, LogInIcon, Menu, MoveRight, X } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/ui/logo"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +13,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Logo } from "../ui/logo"
 
 function Header1() {
   const navigationItems = [
@@ -21,11 +21,11 @@ function Header1() {
       href: "/",
       description: "",
     },
-    {
-      title: "How It Works",
-      href: "/#how-it-works",
-      description: "",
-    },
+    // {
+    //   title: "How It Works",
+    //   href: "/#how-it-works",
+    //   description: "",
+    // },
     {
       title: "Features",
       href: "/#features",
@@ -36,16 +36,16 @@ function Header1() {
       href: "/#pricing",
       description: "",
     },
-    {
-      title: "FAQs",
-      href: "/faqs",
-      description: "",
-    },
     // {
-    //   title: "Request Features",
-    //   href: "/request-features",
+    //   title: "FAQs",
+    //   href: "/faqs",
     //   description: "",
     // },
+    {
+      title: "Roadmap",
+      href: "/roadmap",
+      description: "",
+    },
 
     // {
     //   title: "About",

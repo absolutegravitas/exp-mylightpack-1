@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import type React from "react"
-import { DataProviders } from "@/components/data-providers"
-import { DBStatus } from "@/components/db-status"
-import { TestDriveUI } from "@/components/test-drive-ui"
+import { DataProviders } from "@/components/blocks/dashboard/data-providers"
+import { DBStatus } from "@/components/blocks/dashboard/db-status"
+import { TestDriveUI } from "@/components/blocks/dashboard/test-drive-ui"
 import "@/styles/tailwind.css"
 export const metadata: Metadata = {
   title: "Gear Manager",

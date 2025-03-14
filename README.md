@@ -105,6 +105,7 @@ all in one command
 
 ```bash
 pnpm prettier:fix && pnpm lint:fix
+pnpm prettier:fix && pnpm lint:fix && pnpm build
 pnpm prettier:fix && pnpm lint:fix && pnpm build && pnpm run dev
 pnpm prettier:fix && pnpm lint:fix && pnpm build && pnpm run devtablet
 

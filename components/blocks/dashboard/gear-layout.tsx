@@ -2,6 +2,9 @@
 
 import { Menu, X } from "lucide-react"
 import * as React from "react"
+import { GearDisplay } from "@/components/blocks/dashboard/gear-display"
+import { GearList } from "@/components/blocks/dashboard/gear-list"
+import { Sidebar } from "@/components/blocks/dashboard/sidebar"
 import { Button } from "@/components/ui/button"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -9,9 +12,6 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import { useGear } from "@/hooks/use-gear"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
-import { GearDisplay } from "./gear-display"
-import { GearList } from "./gear-list"
-import { Sidebar } from "./sidebar"
 
 interface GearLayoutProps {
   defaultLayout: number[] | undefined

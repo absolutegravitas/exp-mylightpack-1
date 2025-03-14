@@ -3,11 +3,11 @@
 import { AlertCircle } from "lucide-react"
 import type React from "react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AppModeProvider } from "../contexts/app-mode-context"
-import { GearProvider } from "../contexts/gear-context"
-import { KitsProvider } from "../contexts/kits-context"
-import { ListsProvider } from "../contexts/lists-context"
-import { useIndexedDB } from "../hooks/use-indexed-db"
+import { AppModeProvider } from "@/contexts/app-mode-context"
+import { GearProvider } from "@/contexts/gear-context"
+import { KitsProvider } from "@/contexts/kits-context"
+import { ListsProvider } from "@/contexts/lists-context"
+import { useIndexedDB } from "@/hooks/use-indexed-db"
 
 export const DataProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isSupported, isReady, error } = useIndexedDB()

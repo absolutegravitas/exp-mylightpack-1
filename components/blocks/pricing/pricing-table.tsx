@@ -1,4 +1,5 @@
 import { Check, Minus, MoveRight, PhoneCall } from "lucide-react"
+import Link from "next/link"
 import React from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -64,15 +65,6 @@ const features = [
           lifetime: true,
         },
       },
-
-      // {
-      //   name: "Fast searching. Customizable tags, categories, and views",
-      //   values: {
-      //     solo: true,
-      //     groups: true,
-      //     lifetime: true,
-      //   },
-      // },
     ],
   },
   {
@@ -229,78 +221,33 @@ const features = [
   //   ],
   // },
 ]
-export default function Pricing() {
-  const renderValue = (value: boolean | string) => {
-    if (typeof value === "string") {
-      return <p className="text-muted-foreground text-sm">{value}</p>
-    }
-    return value ? <Check className="text-primary h-4 w-4" /> : <Minus className="text-muted-foreground h-4 w-4" />
-  }
-
+export function Pricing() {
   return (
-    <div id="pricing" className="w-full pt-20 lg:pt-40">
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center justify-center gap-4 text-center">
-          <Badge>Clear and Transparent Pricing</Badge>
-          <div className="flex flex-col gap-2">
-            <h2 className="font-regular max-w-xl text-center text-3xl tracking-tighter md:text-5xl">Pricing</h2>
-          </div>
-          <div className="grid w-full grid-cols-3 divide-x pt-20 text-left lg:grid-cols-4">
-            {/* Empty cell for alignment */}
-            <div className="col-span-3 lg:col-span-1"></div>
+    <section id="pricing" className="pb-32">
+      <div className="container">
+        <div className="flex flex-col items-center justify-center gap-y-4 text-center">
+          <h2 className="mt-4 text-4xl font-semibold tracking-tighter">Pricing</h2>
 
-            {/* Pricing plan headers - Add sticky positioning for mobile */}
-            <div className="bg-background sticky top-20 z-10 col-span-3 grid grid-cols-3 lg:relative lg:top-auto lg:col-span-3">
+          <div className="grid w-full grid-cols-3 divide-x pt-20 text-left lg:grid-cols-3">
+            <div className="col-span-3 grid grid-cols-3 lg:relative lg:top-auto lg:col-span-3">
               {plans.map((plan) => (
-                <div key={plan.name} className="flex flex-col gap-2 px-3 py-1 md:px-6 md:py-4">
-                  <p className="stext-2xl">{plan.name}</p>
+                <div key={plan.name} className="flex flex-col gap-2 px-3 py-1 leading-snug md:px-6 md:py-4">
+                  <h3 className="mb-4 text-2xl font-semibold tracking-tighter text-pretty md:text-3xl">{plan.name}</h3>
+
                   <p className="mt-8 flex flex-col gap-x-2 text-xl lg:flex-row lg:items-center">
                     <span className="text-4xl">${plan.price}</span>
-                    <span className="text-muted-foreground text-sm"> / {plan.interval}</span>
+                    <span className="text-muted-foreground #text-sm"> / {plan.interval}</span>
                   </p>
                   <Button variant={plan.buttonVariant} className="mt-4 gap-4">
                     {plan.buttonText} <plan.buttonIcon className="h-4 w-4" />
                   </Button>
-                  <p className="text-muted-foreground py-5 text-sm">{plan.description}</p>
+                  <p className="text-muted-foreground #text-sm py-5">{plan.description}</p>
                 </div>
               ))}
             </div>
-
-            {/* Features header */}
-            {/* <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
-              <b>Features</b>
-            </div>
-            <div></div>
-            <div></div>
-            <div></div> */}
-
-            {/* Feature categories and items */}
-            {/* {features.map((category) => (
-              <React.Fragment key={`category-${category.category || "default"}`}>
-                <div className="bg-muted/50 col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
-                  <b>{category.category}</b>
-                </div>
-                <div className="bg-muted/50"></div>
-                <div className="bg-muted/50"></div>
-                <div className="bg-muted/50"></div>
-
-                {category.items.map((item) => (
-                  <React.Fragment key={`item-${item.name}`}>
-                    <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">{item.name}</div>
-                    <div className="flex justify-center px-3 py-1 md:px-6 md:py-4">{renderValue(item.values.solo)}</div>
-                    <div className="flex justify-center px-3 py-1 md:px-6 md:py-4">
-                      {renderValue(item.values.groups)}
-                    </div>
-                    <div className="flex justify-center px-3 py-1 md:px-6 md:py-4">
-                      {renderValue(item.values.lifetime)}
-                    </div>
-                  </React.Fragment>
-                ))}
-              </React.Fragment>
-            ))} */}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

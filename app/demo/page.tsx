@@ -1,4 +1,4 @@
-import { GearLayout } from "@/components/gear-layout"
+import { GearLayout } from "@/components/blocks/dashboard/gear-layout"
 import { GearProvider } from "@/hooks/use-gear"
 
 export default function GearPage() {

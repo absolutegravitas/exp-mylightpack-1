@@ -5,7 +5,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { useIndexedDB } from "../hooks/use-indexed-db"
+import { useIndexedDB } from "@/hooks/use-indexed-db"
 
 export const DBStatus: React.FC = () => {
   const { isSupported, isReady, error } = useIndexedDB()
