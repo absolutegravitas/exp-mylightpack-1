@@ -89,6 +89,7 @@
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
     "react-resizable-panels": "^2.1.7",
+    "react-scan": "^0.2.14",
     "recharts": "^2.15.1",
     "remark-gfm": "^4.0.1",
     "resend": "^4.1.2",
