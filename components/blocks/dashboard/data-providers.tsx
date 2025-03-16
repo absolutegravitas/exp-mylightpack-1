@@ -1,9 +1,11 @@
 "use client"
 
 import { AlertCircle } from "lucide-react"
+import { useEffect } from "react"
+
 import type React from "react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AppModeProvider } from "@/contexts/app-mode-context"
+import { AppModeProvider , useAppMode } from "@/contexts/app-mode-context"
 import { GearProvider } from "@/contexts/gear-context"
 import { KitsProvider } from "@/contexts/kits-context"
 import { ListsProvider } from "@/contexts/lists-context"
@@ -43,4 +45,30 @@ export const DataProviders: React.FC<{ children: React.ReactNode }> = ({ childre
       </AppModeProvider>
     </>
   )
+
+  useEffect(() => {
+    const startDemo = async () => {
+      try {
+        await startTestDrive()
+        console.log("Test drive started automatically")
+      } catch (error) {
+        console.error("Error starting test drive automatically:", error)
+      }
+    }
+
+    startDemo()
+  }, [startTestDrive])
 }
+
+useEffect(() => {
+  const startDemo = async () => {
+    try {
+      await startTestDrive()
+      console.log("Test drive started automatically")
+    } catch (error) {
+      console.error("Error starting test drive automatically:", error)
+    }
+  }
+
+  startDemo()
+}, [startTestDrive])

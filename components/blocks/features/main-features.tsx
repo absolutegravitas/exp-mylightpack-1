@@ -2,7 +2,6 @@
 
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 
 export const MainFeatures = () => {
   return (
@@ -12,8 +11,11 @@ export const MainFeatures = () => {
           <div className="lg:col-span-3">
             {/* <p className="text-muted-foreground text-lg">Comprehensive Investment Solutions</p> */}
             <h2 className="mb-3 text-3xl font-semibold tracking-tighter text-pretty md:mb-4 md:text-5xl lg:mb-6 lg:max-w-3xl lg:text-4xl">
+              All your gear. All your lists. For all of your adventures.
+            </h2>{" "}
+            {/* <h3 className="#text-3xl #lg:max-w-3xl #lg:text-4xl mb-3 font-semibold tracking-tighter text-pretty md:mb-4 md:text-5xl lg:mb-6">
               Manage your gear, create and share your packing lists.
-            </h2>
+            </h3> */}
           </div>
           <div className="lg:col-span-2">
             <p className="text-muted-foreground text-lg tracking-tighter">
