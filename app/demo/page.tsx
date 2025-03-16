@@ -1,14 +1,23 @@
-import { GearLayout } from "@/components/blocks/dashboard/gear-layout"
-import { GearProvider } from "@/hooks/use-gear"
+import { Metadata } from "next"
+import { AppLayout } from "@/components/app-layout"
+import { MainContent } from "@/components/main-content"
+import { MenuBar } from "@/components/menu-bar"
 
-export default function GearPage() {
+export const metadata: Metadata = {
+  title: "myLightPack",
+  description: "Manage your gear, pack lists and travel light for your next adventure.",
+}
+
+export default function HomePage() {
   return (
-    <GearProvider>
-      <div className="flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col">
-          <GearLayout defaultLayout={[265, 440, 655]} navCollapsedSize={4} />
-        </main>
+    <div className="bg-background flex h-screen flex-col">
+      <MenuBar />
+      <div className="grid flex-1 lg:grid-cols-5">
+        <AppLayout className="hidden lg:block" />
+        <div className="col-span-3 overflow-auto lg:col-span-4 lg:border-l">
+          <MainContent />
+        </div>
       </div>
-    </GearProvider>
+    </div>
   )
 }

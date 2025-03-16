@@ -1,28 +1,47 @@
-import type { Metadata } from "next"
-import type React from "react"
-import { DataProviders } from "@/components/blocks/dashboard/data-providers"
-import { DBStatus } from "@/components/blocks/dashboard/db-status"
-import "@/styles/tailwind.css"
+import type { Metadata, Viewport } from "next"
+import { Inter as FontSans } from "next/font/google"
+
+import { ServiceWorkerInit } from "@/components/service-worker-init"
+import { ThemeProvider } from "@/components/theme-provider"
+import { DatabaseProvider } from "@/contexts/database-context"
+import { cn } from "@/lib/utils"
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
 export const metadata: Metadata = {
-  title: "Gear Manager",
-  description: "Manage your outdoor gear, kits, and packing lists",
-  generator: "v0.dev",
+  title: "myLightPack",
+  description: "Manage your gear, pack lists and travel light for your next adventure.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "myLightPack",
+  },
 }
 
-export default function DemoDashboardLayout({ children }: { children: React.ReactNode }) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+}
+
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <DataProviders>
-      {/* Your existing layout */}
-      <header className="flex items-center justify-between border-b p-4">
-        <h1 className="text-xl font-bold">Gear Manager</h1>
-        <div className="flex items-center gap-2">
-          <DBStatus />
-          {/* <TestDriveUI /> */}
-        </div>
-      </header>
-      <div className="container mx-auto p-4">
-        <main>{children}</main>
-      </div>
-    </DataProviders>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body className={cn("bg-background min-h-screen font-sans antialiased", fontSans.variable)}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <DatabaseProvider>{children}</DatabaseProvider>
+        </ThemeProvider>
+        <ServiceWorkerInit />
+      </body>
+    </html>
   )
 }
