@@ -10,8 +10,8 @@ export default function ClientBody({ children }: { children: React.ReactNode }) 
   }, [])
 
   return (
-    <body className="antialiased" suppressHydrationWarning>
+    <div className="antialiased" suppressHydrationWarning>
       {children}
-    </body>
+    </div>
   )
 }

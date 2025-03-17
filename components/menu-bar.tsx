@@ -1,12 +1,11 @@
 "use client"
 
-import { Menu as MenuIcon, SearchIcon, User } from "lucide-react"
+import { Menu as MenuIcon, User } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { AppLayout } from "./app-layout"
 import { Search } from "./search"
-import { ThemeToggle } from "./theme-toggle"
 
 export function MenuBar() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -44,11 +43,10 @@ export function MenuBar() {
       <div className="flex flex-1 items-center gap-4">
         <h1 className="hidden text-xl font-semibold tracking-tighter md:block">myLightPack</h1>
         <div className="ml-auto md:ml-4">
-          <Search placeholder="Search gear, brands, categories..." onChange={handleSearch} />
+          <Search value={searchQuery} placeholder="Search gear, brands, categories..." onChange={handleSearch} />
         </div>
       </div>
       <div className="ml-2 flex items-center gap-2">
-        <ThemeToggle />
         <Button variant="ghost" size="icon">
           <User className="h-5 w-5" />
           <span className="sr-only">User account</span>

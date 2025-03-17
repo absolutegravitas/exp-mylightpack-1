@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "../../theme-toggle"
 
 interface FooterProps {
   logo: React.ReactNode
@@ -48,7 +49,7 @@ export function Footer({ logo, brandName, socialLinks, mainLinks, legalLinks, co
           </ul>
         </div>
         <div className="mt-6 border-t pt-6 md:mt-4 md:pt-8 lg:grid lg:grid-cols-10">
-          <nav className="lg:col-[4/11] lg:mt-0">
+          <nav className="lg:flex lg:items-center lg:justify-center lg:space-x-4 lg:col-[4/11] lg:mt-0">
             <ul className="-mx-2 -my-1 flex list-none flex-wrap lg:justify-end">
               {mainLinks.map((link, i) => (
                 <li key={i} className="mx-2 my-1 shrink-0">
@@ -57,6 +58,9 @@ export function Footer({ logo, brandName, socialLinks, mainLinks, legalLinks, co
                   </Link>
                 </li>
               ))}
+              <li className="mx-2 my-1 shrink-0">
+                <ThemeToggle />
+              </li>
             </ul>
           </nav>
           <div className="mt-6 lg:col-[4/11] lg:mt-0">

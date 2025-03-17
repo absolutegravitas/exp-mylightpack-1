@@ -4,10 +4,10 @@ import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Footer } from "@/components/blocks/menus/footer"
 import { Header1 } from "@/components/blocks/menus/header"
-import { CookieConsent } from "@/components/cookie-consent"
 import { ReactScan } from "@/components/react-scan"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Logo } from "@/components/ui/logo"
+import MarketingLayout from "./(marketing)/layout"
 import { PostHogProvider } from "./(providers)/PostHogProvider"
 
 const geistSans = Geist({
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Determine the Vercel environment.
   const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL_ENV
+
   return (
     <ClerkProvider
       appearance={{
@@ -55,16 +56,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <PostHogProvider>
-              <Header1 />
-              <CookieConsent
-                variant="default"
-                // onAcceptCallback={() => {
-                //   // Handle accept
-                // }}
-                // onDeclineCallback={() => {
-                //   // Handle decline
-                // }}
-              />
               {children}
 
               <Footer

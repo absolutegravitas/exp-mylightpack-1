@@ -8,20 +8,21 @@ import { Input } from "@/components/ui/input"
 interface SearchProps {
   placeholder?: string
   className?: string
+  value: string
   onChange?: (value: string) => void
 }
 
-export function Search({ placeholder = "Search...", className, onChange }: SearchProps) {
-  const [value, setValue] = useState("")
+export function Search({ placeholder = "Search...", className, value, onChange }: SearchProps) {
+  const [inputValue, setInputValue] = useState(value)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
-    setValue(newValue)
+    setInputValue(newValue)
     onChange?.(newValue)
   }
 
   const handleClear = () => {
-    setValue("")
+    setInputValue("")
     onChange?.("")
   }
 
@@ -32,10 +33,10 @@ export function Search({ placeholder = "Search...", className, onChange }: Searc
         type="search"
         placeholder={placeholder}
         className="h-9 pr-8 pl-8 md:w-[200px] lg:w-[280px]"
-        value={value}
+        value={inputValue}
         onChange={handleChange}
       />
-      {value && (
+      {inputValue && (
         <Button variant="ghost" size="icon" className="absolute top-0 right-0 h-9 w-9 px-2.5" onClick={handleClear}>
           <X className="h-4 w-4" />
           <span className="sr-only">Clear</span>

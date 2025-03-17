@@ -1,50 +1,42 @@
 // app/(providers)/CookieConsentProvider.tsx
 "use client"
 
-import { createContext, useContext, useEffect, useState } from "react"
-import { CookieConsent } from "@/components/cookie-consent"
+import React, { createContext, useContext, useEffect, useState } from "react"
+import CookieConsent from "@/components/cookie-consent"
 
-const CookieConsentContext = createContext({
-  cookieConsentStatus: "pending",
-  acceptCookies: () => {},
-  declineCookies: () => {},
-})
+const CookieConsentContext = createContext<{
+  consent: boolean | null
+  acceptCookies: () => void
+  declineCookies: () => void
+} | null>(null)
 
-export function CookieConsentProvider({ children }: { children: React.ReactNode }) {
-  const [cookieConsentStatus, setCookieConsentStatus] = useState("pending")
+export const CookieConsentProvider = ({ children }: { children: React.ReactNode }) => {
+  const [consent, setConsent] = useState<boolean | null>(null)
 
   useEffect(() => {
     const consentCookie = document.cookie.includes("cookieConsent")
     if (consentCookie) {
-      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)cookieConsent\s*\=\s*([^;]*).*$)|^.*$/, "$1")
-      setCookieConsentStatus(cookieValue)
+      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)cookieConsent\s*=\s*([^;]*).*$)|^.*$/, "$1")
+      setConsent(cookieValue === "accepted")
     }
   }, [])
 
   const acceptCookies = () => {
-    setCookieConsentStatus("accepted")
+    setConsent(true)
     document.cookie = "cookieConsent=accepted; max-age=31536000; path=/"
   }
 
   const declineCookies = () => {
-    setCookieConsentStatus("declined")
+    setConsent(false)
     document.cookie = "cookieConsent=declined; max-age=31536000; path=/"
   }
 
-  const contextValue = {
-    cookieConsentStatus,
-    acceptCookies,
-    declineCookies,
-  }
-
   return (
-    <CookieConsentContext.Provider value={contextValue}>
+    <CookieConsentContext.Provider value={{ consent, acceptCookies, declineCookies }}>
       <CookieConsent variant="default" onAcceptCallback={acceptCookies} onDeclineCallback={declineCookies} />
       {children}
     </CookieConsentContext.Provider>
   )
 }
 
-export function useCookieConsent() {
-  return useContext(CookieConsentContext)
-}
+export const useCookieConsent = () => useContext(CookieConsentContext)

@@ -2,16 +2,32 @@
 
 import { CookieIcon } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useCookieConsent } from "../app/(providers)/CookieConsentProvider"
 
-export function CookieConsent({
+interface CookieConsentProps {
+  variant?: "default" | "small" | "minimal"
+  mode?: boolean
+  onAcceptCallback?: () => void
+  onDeclineCallback?: () => void
+}
+
+const CookieConsent = ({
   variant = "default",
   mode = false,
   onAcceptCallback = () => {},
   onDeclineCallback = () => {},
-}) {
+}: CookieConsentProps) => {
+  const context = useCookieConsent()
+
+  if (!context) return null // Ensure context is available
+
+  const { consent, acceptCookies, declineCookies } = context
+
+  if (consent !== null) return null // Don't show if consent is already given or declined
+
   const [isOpen, setIsOpen] = useState(false)
   const [hide, setHide] = useState(false)
 
@@ -22,6 +38,7 @@ export function CookieConsent({
       setHide(true)
     }, 700)
     onAcceptCallback()
+    acceptCookies()
   }
 
   const decline = () => {
@@ -30,6 +47,7 @@ export function CookieConsent({
       setHide(true)
     }, 700)
     onDeclineCallback()
+    declineCookies()
   }
 
   useEffect(() => {
@@ -48,83 +66,87 @@ export function CookieConsent({
     }
   }, [])
 
-  return variant === "default" ? (
-    <div
-      className={cn(
-        "fixed right-0 bottom-0 left-0 z-[200] w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0",
-        !isOpen
-          ? "translate-y-8 opacity-0 transition-[opacity,transform]"
-          : "translate-y-0 opacity-100 transition-[opacity,transform]",
-        hide && "hidden"
-      )}
-    >
-      <div className="dark:bg-card bg-background border-border rounded-lg border shadow-lg sm:rounded-md">
-        <div className="grid gap-2">
-          <div className="border-border flex h-12 items-center justify-between border-b p-3 sm:h-14 sm:p-4">
+  if (variant === "default") {
+    return (
+      <div
+        className={cn(
+          "fixed right-0 bottom-0 left-0 z-[200] w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0",
+          !isOpen
+            ? "translate-y-8 opacity-0 transition-[opacity,transform]"
+            : "translate-y-0 opacity-100 transition-[opacity,transform]",
+          hide && "hidden"
+        )}
+      >
+        <div className="dark:bg-card bg-background border-border rounded-lg border shadow-lg sm:rounded-md">
+          <div className="grid gap-2">
+            <div className="border-border flex h-12 items-center justify-between border-b p-3 sm:h-14 sm:p-4">
+              <h1 className="text-base font-medium sm:text-lg">We use cookies</h1>
+              <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
+            </div>
+            <div className="p-3 sm:p-4">
+              <p className="text-muted-foreground text-start text-xs font-normal sm:text-sm">
+                We use cookies to ensure you get the best experience on our website. For more information on how we use
+                cookies, please see our cookie policy.
+                <br />
+                <br />
+                <span className="text-xs">
+                  By clicking
+                  <span className="font-medium text-black dark:text-white"> Accept</span>, you agree to our use of
+                  cookies.{" "}
+                  <Link href="/privacy" className="text-xs underline">
+                    See our privacy policy.{" "}
+                  </Link>
+                </span>
+                <br />
+              </p>
+            </div>
+            <div className="border-border dark:bg-background/20 flex flex-col gap-2 border-t p-3 sm:flex-col sm:p-4 sm:py-5">
+              <Button onClick={accept} className="w-full cursor-pointer" variant="default">
+                Accept
+              </Button>
+              <Button onClick={decline} className="w-full cursor-pointer" variant="secondary">
+                Decline
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  } else if (variant === "small") {
+    return (
+      <div
+        className={cn(
+          "fixed right-0 bottom-0 left-0 z-[200] w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0",
+          !isOpen
+            ? "translate-y-8 opacity-0 transition-[opacity,transform]"
+            : "translate-y-0 opacity-100 transition-[opacity,transform]",
+          hide && "hidden"
+        )}
+      >
+        <div className="dark:bg-card bg-background border-border m-0 rounded-lg border shadow-lg sm:m-3">
+          <div className="flex items-center justify-between p-3">
             <h1 className="text-base font-medium sm:text-lg">We use cookies</h1>
             <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
           </div>
-          <div className="p-3 sm:p-4">
-            <p className="text-muted-foreground text-start text-xs font-normal sm:text-sm">
+          <div className="-mt-2 p-3">
+            <p className="text-muted-foreground text-left text-xs sm:text-sm">
               We use cookies to ensure you get the best experience on our website. For more information on how we use
               cookies, please see our cookie policy.
-              <br />
-              <br />
-              <span className="text-xs">
-                By clicking
-                <span className="font-medium text-black dark:text-white"> Accept</span>, you agree to our use of
-                cookies.{" "}
-                <Link href="/privacy" className="text-xs underline">
-                  See our privacy policy.{" "}
-                </Link>
-              </span>
-              <br />
             </p>
           </div>
-          <div className="border-border dark:bg-background/20 flex flex-col gap-2 border-t p-3 sm:flex-col sm:p-4 sm:py-5">
-            <Button onClick={accept} className="w-full cursor-pointer" variant="default">
+          <div className="mt-2 flex flex-col items-center gap-2 border-t p-3 sm:flex-row">
+            <Button onClick={accept} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm">
               Accept
             </Button>
-            <Button onClick={decline} className="w-full cursor-pointer" variant="secondary">
+            <Button onClick={decline} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm" variant="outline">
               Decline
             </Button>
           </div>
         </div>
       </div>
-    </div>
-  ) : variant === "small" ? (
-    <div
-      className={cn(
-        "fixed right-0 bottom-0 left-0 z-[200] w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-md sm:p-0",
-        !isOpen
-          ? "translate-y-8 opacity-0 transition-[opacity,transform]"
-          : "translate-y-0 opacity-100 transition-[opacity,transform]",
-        hide && "hidden"
-      )}
-    >
-      <div className="dark:bg-card bg-background border-border m-0 rounded-lg border shadow-lg sm:m-3">
-        <div className="flex items-center justify-between p-3">
-          <h1 className="text-base font-medium sm:text-lg">We use cookies</h1>
-          <CookieIcon className="h-4 w-4 sm:h-[1.2rem] sm:w-[1.2rem]" />
-        </div>
-        <div className="-mt-2 p-3">
-          <p className="text-muted-foreground text-left text-xs sm:text-sm">
-            We use cookies to ensure you get the best experience on our website. For more information on how we use
-            cookies, please see our cookie policy.
-          </p>
-        </div>
-        <div className="mt-2 flex flex-col items-center gap-2 border-t p-3 sm:flex-row">
-          <Button onClick={accept} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm">
-            Accept
-          </Button>
-          <Button onClick={decline} className="h-8 w-full cursor-pointer text-xs sm:h-9 sm:text-sm" variant="outline">
-            Decline
-          </Button>
-        </div>
-      </div>
-    </div>
-  ) : (
-    variant === "minimal" && (
+    )
+  } else if (variant === "minimal") {
+    return (
       <div
         className={cn(
           "fixed right-0 bottom-0 left-0 z-[200] w-full p-4 duration-700 sm:bottom-4 sm:left-4 sm:max-w-[300px] sm:p-0",
@@ -162,5 +184,9 @@ export function CookieConsent({
         </div>
       </div>
     )
-  )
+  }
+
+  return null
 }
+
+export default CookieConsent
