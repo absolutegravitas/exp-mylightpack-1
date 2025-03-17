@@ -1,78 +1,9 @@
 ## Work Done
 
-- 2025-03-06: Updated Memory Bank files (`activeContext.md`, `progress.md`, `decisionLog.md`) for UMB.
-- 2025-03-04: Updated Memory Bank files (`activeContext.md`, `progress.md`, `decisionLog.md`) for UMB.
-- 2025-03-04: Read `memory-bank/activeContext.md`, `memory-bank/progress.md`, and `memory-bank/decisionLog.md` for UMB.
-- 2025-03-04: Processed commit `35203dd09f28d79c1bbcc76ae6113a1298b87701`: Updated landing page sections.
-- 2025-03-04: Processed commit `c0f186104bbbd129fe55ee0bd9c8998b591b4c43`: Added demo route.
-- 2025-03-04: Processed commit `d0d993f6bcc13729eb21b7b93ed51331e76e1854`: Added placeholder images.
-- 2025-03-04: Processed commit `72a77dff5ff66e3e3102a3d4fe08adfa771ee3c7`: Added Shadcn UI components.
-- 2025-03-04: Processed commit `1b11b56d64c1a0655f076a97ac9247564f1e6515`: Updated nav components.
-- 2025-02-27: Processed commit `d886dda59c35596b526aa27770bad75c3b226b11`: Updated UI components (`CookieConsent`, `Card`, `Label`) to improve code formatting and consistency. No functional changes were introduced.
-- 2025-02-27: Processed commit `31b2a3aa602fabdacef863a672a274a4cfc1e5b0`: Implemented a fully functional sign-in route at `app/sign-in/[[...sign-in]]/page.tsx` using Clerk Auth and Shadcn UI components. This includes social sign-in, email/password sign-in, and verification steps, significantly enhancing the application's authentication capabilities.
-- 2025-02-27: Processed commit `7cb0963adc8bff14bb976f579499b26f406c864a`: Implemented basic styling customization for Clerk Auth components within `app/layout.tsx` using the `appearance` prop, setting primary color and basic element styles for buttons and cards.
-- 2025-02-27: Processed commit `410c85aa2798d28d98d0a8d9e555bf1adf80cd53`: Added `Card`, `Icons`, and `Label` UI components to `components/ui/`, enhancing the UI component library.
-- 2025-02-27: Processed commit `8fa1d9608831393ca4f721eb6352f9478ea94740`: Added necessary packages for Clerk Elements and related UI components, updating `package.json` and `pnpm-lock.yaml`.
-- 2025-02-27: Processed commit `47353dca2883536ce87cbbfcae3f6e77189cd37a`: Updated `JOURNAL.md` to reflect recent activities and project status.
-- 2025-02-27: Processed commit `b72dd573dc3da79e4c0deba5b8e33144f4018fc0`: Added `CookieConsent` UI component to enhance user privacy and comply with cookie consent requirements.
-- 2025-02-27: Processed commit `2dffead6ca4576d3357bc14b65c212b5979f1edb`: Reorganized Content Security Policy (CSP) to ensure Clerk Auth functions correctly, resolving CSP-related issues.
-- 2025-02-27: Processed commit `1d53833e4ab9883ef3b654dbc3076459f7a83206`: Removed specific pnpm version in package manager configuration to allow for more flexible pnpm version management.
-- 2025-02-27: Processed commit `f10cc651213fb8ec327caf52393533516f085824`: Updated `JOURNAL.md` and `actionable-features.md` to keep documentation current with project direction.
-- 2025-02-27: Processed commit `ee2e1042c01f1853401978e013731a0e9cd6f98e`: Added scaffolding for site pages and UI components, setting up basic structure for future development.
-- 2025-02-27: Processed commit `5c66b403c39604f9b73f73b96faa0a1c97c80e8c`: Started adding Clerk Auth support to the application, laying groundwork for authentication features.
-- 2025-02-25: Processed commit `0602c9d1d063550fbc5c478c5c29f6cc0cb108a4`: Updated `progress.md` documentation to track development progress accurately.
-- 2025-02-25: Processed commit `463187cb842b2df6780eb463d2c703d8f7849b4e`: Added Shadcn UI and Radix UI components for enhanced UI capabilities, integrating modern UI libraries.
-- 2025-02-25: Processed commit `fec2158da850de2ecf9a87975dadd8da809c69a5`: Added `projectBrief.md` to detail project goals, features, and technology stack, improving project documentation.
-- 2025-02-25: Processed commit `91baa301e98156b32dca592bb7fd2e57f21f7eee`: Updated `README.md` with old prompts to maintain a record of project evolution and initial instructions.
-- 2025-02-25: Processed commit `875bba05563bd53df8bdd6c18712efe152b379b7`: Added landing page UI and components, including HeroSection, FeatureSection, GearItemForm, and GearItemList components. Implemented basic landing page structure and gear inventory form.
-- 2025-02-25: Processed commit `619072024b0756903e5dfc4acd6588d05d3e6c19`: Added starter UI components including `Button`, `Container`, `Header`, `Input`, and `NavigationMenu` components, providing a foundation for the application's UI.
-- 2025-02-25: Processed commit `c4919d6a62bef01a885e923976a44cc669b6b1c7`: Added `mockData.js` to the `lib` directory, containing mock data for development and testing.
-- 2025-02-25: Processed commit `8162a61dd4f6a6821c4a3eecd55e78b1699fd432`: Updated `styles/tailwind.css` to enhance Tailwind CSS styles and improve dark mode support.
-- 2025-02-25: Processed commit `4a88e825356dd99efb4f2ccfa83f13fd8f4ccbec`: Applied ESLint formatting to codebase. No functional code changes.
-- 2025-02-25: Processed commit `70c5284d4e19d3620c8d1125fb72d242059f8ccb`: Added in memory-bank prompts to guide future development and maintain context.
-- 2025-02-25: Processed commit `d5050ff7e2708e36b5b0f6b1331df4745c819f4d`: Removed Dexie client code and implemented direct IndexedDB usage in `lib/indexedDbClient.ts` for database interactions.
-- 2025-02-25: Processed commit `bf2c075d98771e666355388eee1d85d600435a5c`: Added favicon support to improve site identity.
-- 2025-02-25: Processed commit `1c3e76bd8f8acfa8756c8ec362761f2405eef2d6`: Removed prd doc, likely a temporary or outdated document.
-- 2025-02-25: Processed commit `ca619d42e4e9e17c6df736bab56a65258485f49c`: Updated `JOURNAL.md` to keep the development journal current.
-- 2025-02-25: Processed commit `95aed496157a39205132b8f7c12d2dc458e6eb7a`: Updated ESLint exclusions to refine linting rules and focus on relevant code.
-- 2025-02-25: Processed commit `af40f816aa1ead6722569cf8460e32dc8f24951f`: Updated Content Security Policy (CSP) to include PostHog, enabling analytics integration.
-- 2025-02-25: Processed commit `8a5821b0f62a23961fc53cefc3119d17857e54a6`: Added Cline rules, likely configuration files for the Cline development environment.
-- 2025-02-25: Processed commit `4dd78c089e75722728a8b641dc5a5ef22c4ab93c`: Updated Cline rules, refining the configuration for the development environment.
-- 2025-02-25: Processed commit `3a8afabbcd38d31d35599fd23c958265beba5779`: Added roocode rules, potentially specific rules for the Roo Code mode.
-- 2025-02-25: Processed commit `d6362543e462f1c2f8c071e6116f94c6870f21ca`: Updated `JOURNAL.md`.
-- 2025-02-25: Processed commit `7097da12eafcac0ee5cf4d92210e425cc7c868d1`: Updated `JOURNAL.md`.
-- 2025-02-25: Processed commit `804a3ddc9b53e2f0ede47020b369ad27f0101c0f`: Implemented Dexie client for IndexedDB interactions.
-- 2025-02-25: Processed commit `977da1c82190c82e6075714a74d24efbc9346ffc`: Implemented Upstash client for Upstash Redis database interactions.
-- 2025-02-25: Processed commit `03fd34ac8fc259ae2aebe7b8245c49df0584f130`: Updated `README.md`.
-- 2025-02-25: Processed commit `472997bc12cf792ff423877fcc6f7717d695a0bd`: Added PRD (Product Requirements Document).
-- 2025-02-25: Processed commit `ca232004781919bd0fddd66eaa33f59ed4af5216`: Updated `JOURNAL.md`.
-- 2025-02-25: Processed commit `a24c71cee720dc47b7de0117588b6e1c2453bb1d`: Updated dev journal.
-- 2025-02-25: Processed commit `70f41c709221566a89b0be0730d42d78f0397638`: Added UI packages, likely initial UI library setup.
-- 2025-02-25: Processed commit `4008a5780e6f12f2cc4858b4c262e7e7dac39322`: Added schema v2, updating database schema to version 2.
-- 2025-02-25: Processed commit `0d4f74d44822edf018f1cf8426d1f868343a0731`: Added schema v1, creating initial database schema version 1.
-- 2025-02-25: Processed commit `02c5f2239de0fa20d1a76a28739e40abce3f1669`: Scaffolded Upstash client for database interactions.
-- 2025-02-25: Processed commit `1b3b57a457858413cfd37e88c7a893de8185a728`: Scaffolded Dexie client for local database interactions.
-- 2025-02-25: Processed commit `2612b2e3d2ba662ef687cb32727ba8765e61ad0e`: Added Radix UI and Shadcn UI components for UI development.
-- 2025-02-25: Processed commit `a4b1ffe8ea4c87ea582d49aa35bb1945ef04c99a`: Added dev journal to track development activities.
-- 2025-02-25: Processed commit `ba77bd222d4aea5be7dcad7422ff46beeaa062c1`: Merged branch 'main' from GitHub repository.
-- 2025-02-25: Processed commit `c7da63013112654cfccef1d59cb1f9b3fbcf47ec`: Added `JOURNAL.md` for tracking project development.
-- 2025-02-25: Processed commit `b0cf14246b68420528af2b68676cbebf3fae76bd`: Added back turbo param to dev script, likely re-enabling Turbo for faster development builds.
-- 2025-02-25: Processed commit `d90f51f53c9e345bfadf9d10ea1f376119677d7d`: Added separate slowdev package.json script for tablet development, optimizing for tablet environment.
-- 2025-02-25: Processed commit `d79720237ee73be2fd460d9b4cf1d383fbd41e2f`: Middleware export dummy function - unclear purpose, possibly for testing or placeholder.
-- 2025-02-25: Processed commit `83c6d03a8118b25ec2b1bb8cdbdc9a4879de47dd`: Updated `.continueignore` to refine files ignored by Continue.
-- 2025-02-25: Processed commit `a10cf227a2ff5c2d9099e421c0e3588f214e1376`: Commit message "n" - likely a quick, undescriptive commit.
-- 2025-02-25: Processed commit `a90e610757276e5dc581c2bab3941a0b98c43a74`: Disabled ClerkUI components to improve mobile performance, addressing slowdown issues.
-- 2025-02-25: Processed commit `6c510901a17cfdebcadd489423acb5c543d5c1b9`: Temporarily commented out middleware.ts, possibly for debugging or testing purposes.
-- 2025-02-25: Processed commit `eaf43b3d2432d7e2cdf41cd37c0e9167ff9d2af2`: Improved SEO by not blocking robots in middleware, making the site more discoverable.
-- 2025-02-25: Processed commit `7380f7df7b6bbce7cb85bf620eb04267021a3917`: Added shadcn/ui and Tailwind CSS, setting up core UI and styling frameworks.
-- 2025-02-25: Processed commit `f5534ec11c61b9885235dae3776b51f7f075d012`: Package upgrades, updating project dependencies.
-- 2025-02-25: Processed commit `bebb9f5c650627047c18e37b77aa0cbdc82f1365`: Added `NEXT_PUBLIC_SERVER_URL` parameter, likely for configuring server URL in the application.
-- 2025-02-25: Processed commit `6405cc4390f9f9e7d3d90564de0f8d0ab446f43d`: Added content security policies to `next.config.ts` for enhanced security.
-- 2025-02-25: Processed commit `7e7c1fc9b802f53c9bd45f36e8cb9b5eeefbedd7`: Updated `README.md`.
-- 2025-02-25: Processed commit `d893f255c6a7b80608be41c972b8dd757f4a1210`: Added PostHog config for analytics integration.
-- 2025-02-25: Processed commit `63da1dfcf2482c279d1c4e8d6c56d274ff5b42f8`: Added basic config for Clerk Auth to integrate Clerk authentication.
-- 2025-02-25: Processed commit `6d0dd23f92e0bd85f1833edf7ef8e0b21d730626`: Added env type rules for environment variable type checking.
-- 2025-02-25: Processed commit `450abf991bdfce64742c9cb33bff1601f6f46de6`: Updated `continuerules` for the Continue development environment.
-- 2025-02-25: Processed commit `f4834e1ad48d940fa85e9b4a366afcd8f78a06ad`: Added millionlint but kept disabled, likely for future performance linting.
-- 2025-02-25: Processed commit `c82c697381f36bdbdd7ff09d9b2d35223a9895dd`: Added continue rules, setting up configuration for the Continue development environment.
-- 2025-02-25: Processed commit `5831749b516790085bc44e6341a924f0d1e89888`: Initial commit of the project.
+- Updated `app/demo/layout.tsx` to correct the nested layout structure according to Next.js recommendations.
+- Created `app/error.tsx` to create a Next.js 15 App Router compliant error page.
+- Created `app/not-found.tsx` to create a Next.js 15 App Router compliant not-found page.
+
+## Next Steps
+
+- Review any additional implementation tasks or changes needed.

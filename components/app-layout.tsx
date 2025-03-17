@@ -17,8 +17,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
-import { packLists } from "../data/pack-lists"
-import { cn } from "../lib/utils"
+import { packLists } from "@/data/pack-lists"
+import { cn } from "@/lib/utils"
 
 export function AppLayout({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (

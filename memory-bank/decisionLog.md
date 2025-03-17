@@ -1,27 +1,29 @@
-## 2025-02-25 - Code mode setup and initial component implementation
+## [16/03/2025] - Layout Correction for Demo Route
 
-**Context:**
+**Context:** The layout for the demo route was incorrectly structured with HTML and body tags, which is not allowed in nested layouts in Next.js.
 
-- Switched to code mode to begin UI implementation for the myLightPack SaaS application.
-- Encountered errors related to module resolution for `Container` component and invalid Button variant in `app/page.tsx`.
+**Decision:** Updated the `app/demo/layout.tsx` file to remove the HTML and body tags and wrap the content in a fragment.
 
-**Decision:**
+**Rationale:** This change aligns with Next.js best practices for nested layouts, ensuring proper rendering and functionality.
 
-- Simplified the `Container` component implementation by using a plain `div` with Tailwind CSS classes instead of relying on `@radix-ui/react-container`.
-- Corrected the Button variant in `app/page.tsx` to `"default"` to resolve the TypeScript error.
-- Installed `@radix-ui/react-primitive` dependency to potentially address module resolution issues, although it didn't directly solve the Container issue, it might be needed for other Radix UI components in the future.
-- Updated Memory Bank files (`activeContext.md`, `progress.md`, `decisionLog.md`, `productContext.md`) for UMB.
+**Implementation:** The layout now uses a fragment to wrap the ThemeProvider and DatabaseProvider components.
 
-**Rationale:**
+## [16/03/2025] - Implementation of Error Page
 
-- Simplifying the `Container` component helps to quickly resolve the immediate module resolution error and allows progress on UI implementation.
-- Correcting the Button variant ensures code correctness and type safety.
-- Installing `@radix-ui/react-primitive` is a proactive step to include necessary Radix UI primitives, as Shadcn UI components are often built upon them, and might be required later in the development process.
-- Updating Memory Bank ensures that the project context and progress are accurately recorded and maintained.
+**Context:** The application requires a custom error page to handle unexpected errors gracefully.
 
-**Implementation:**
+**Decision:** Created `app/error.tsx` to implement a custom error page.
 
-- Modified `components/ui/container.tsx` to use a plain `div` with Tailwind CSS classes.
-- Applied `apply_diff` to `app/page.tsx` to change Button variant to `"default"`.
-- Executed `pnpm add @radix-ui/react-primitive` to install the Radix UI primitives package.
-- Updated `memory-bank/activeContext.md`, `memory-bank/progress.md`, `memory-bank/decisionLog.md`, `memory-bank/productContext.md` using `write_to_file`.
+**Rationale:** This provides a better user experience when errors occur and allows for error logging.
+
+**Implementation:** The error page displays a message and a button to retry.
+
+## [16/03/2025] - Implementation of Not Found Page
+
+**Context:** The application requires a custom not-found page to handle 404 errors gracefully.
+
+**Decision:** Created `app/not-found.tsx` to implement a custom not-found page.
+
+**Rationale:** This provides a better user experience when resources are not found and allows users to navigate back to the home page.
+
+**Implementation:** The not-found page displays a message and a link to return to the home page.

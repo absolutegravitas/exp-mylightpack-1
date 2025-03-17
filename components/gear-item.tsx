@@ -11,7 +11,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { GearItem } from "@/lib/db"
-import { cn } from "../lib/utils"
+import { cn } from "@/lib/utils"
 
 interface GearItemProps extends React.HTMLAttributes<HTMLDivElement> {
   item: GearItem

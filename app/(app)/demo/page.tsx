@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-background flex h-screen flex-col">
+    <div className="bg-background flex h-screen flex-col pt-20">
+      <div className="bg-yellow-500 p-2 text-center text-yellow-900">This is a Test Drive. All data is demo data.</div>
+
       <MenuBar />
       <div className="grid flex-1 lg:grid-cols-5">
         <AppLayout className="hidden lg:block" />

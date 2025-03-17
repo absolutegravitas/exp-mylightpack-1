@@ -1,10 +1,12 @@
 ## Current Session Context
 
-[Date and time of update: 06/03/2025, 12:08:27 am]
+[Date and time of update: 16/03/2025, 09:39:10 pm]
 
 ## Recent Changes
 
-- Updated `memory-bank/activeContext.md`, `memory-bank/progress.md`, `memory-bank/decisionLog.md` for UMB.
+- Updated `app/not-found.tsx` to create a Next.js 15 App Router compliant not-found page.
+- Updated `app/error.tsx` to create a Next.js 15 App Router compliant error page.
+- Updated `memory-bank/activeContext.md`, `memory-bank/productContext.md`, `memory-bank/progress.md`, and `memory-bank/decisionLog.md` for UMB.
 - Read `memory-bank/activeContext.md`, `memory-bank/progress.md`, and `memory-bank/decisionLog.md` for UMB.
 - Processed commit `d886dda`: Updated UI components (`CookieConsent`, `Card`, `Label`) to improve code formatting and consistency.
 - Processed commit `31b2a3a`: Implemented a fully functional sign-in route at `app/sign-in/[[...sign-in]]/page.tsx` using Clerk Auth and Shadcn UI components.
