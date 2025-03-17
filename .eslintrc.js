@@ -10,4 +10,8 @@ module.exports = {
       },
     },
   },
+  rules: {
+    "import/order": "off", // Disable import sorting
+    "sort-imports": "off", // Disable sort-imports rule
+  },
 }
