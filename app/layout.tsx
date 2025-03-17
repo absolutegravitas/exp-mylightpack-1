@@ -8,7 +8,7 @@ import { CookieConsent } from "@/components/cookie-consent"
 import { ReactScan } from "@/components/react-scan"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Logo } from "@/components/ui/logo"
-import { PostHogProvider } from "./(providers)/provider"
+import { PostHogProvider } from "./(providers)/PostHogProvider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
