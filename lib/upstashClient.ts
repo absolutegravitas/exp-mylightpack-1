@@ -1,8 +1,10 @@
-// lib/upstashClient.ts
+// Upstash Redis client configuration
 import { Redis } from "@upstash/redis"
 
-// Example initialization; ensure you have the proper environment variables.
-export const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_URL!,
-  token: process.env.UPSTASH_REDIS_TOKEN!,
+// Create a Redis client for Upstash
+const redisClient = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL, // replace with your Upstash Redis URL
+  token: process.env.UPSTASH_REDIS_REST_TOKEN, // replace with your Upstash Redis token
 })
+
+export default redisClient
