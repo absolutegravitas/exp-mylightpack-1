@@ -1,11 +1,13 @@
 "use client"
 
 import { Menu as MenuIcon, User } from "lucide-react"
+import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { AppLayout } from "./app-layout"
 import { Search } from "./search"
+import { Logo } from "@/components/ui/logo"
 
 export function MenuBar() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -31,7 +33,9 @@ export function MenuBar() {
           </SheetTrigger>
           <SheetContent side="left" className="w-[240px] sm:w-[320px]">
             <SheetHeader>
-              <SheetTitle>myLightPack</SheetTitle>
+              <SheetTitle>
+                <Logo />
+              </SheetTitle>
               <SheetDescription>Manage your gear and pack lists</SheetDescription>
             </SheetHeader>
             <div className="py-4">
@@ -41,7 +45,12 @@ export function MenuBar() {
         </Sheet>
       </div>
       <div className="flex flex-1 items-center gap-4">
-        <h1 className="hidden text-xl font-semibold tracking-tighter md:block">myLightPack</h1>
+        <Link href={"/"}>
+          <p className="flex items-center align-middle text-sm font-semibold md:text-xl">
+            <Logo className="h-10 w-10 pr-2" />
+            {`myLightPack`}
+          </p>
+        </Link>
         <div className="ml-auto md:ml-4">
           <Search value={searchQuery} placeholder="Search gear, brands, categories..." onChange={handleSearch} />
         </div>
