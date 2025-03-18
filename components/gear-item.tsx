@@ -18,6 +18,7 @@ interface GearItemProps extends React.HTMLAttributes<HTMLDivElement> {
   aspectRatio?: "portrait" | "square"
   width?: number
   height?: number
+  onDelete?: (id: string) => void
 }
 
 export function GearItemCard({ item, aspectRatio = "square", width, height, className, ...props }: GearItemProps) {

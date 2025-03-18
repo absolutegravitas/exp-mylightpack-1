@@ -52,7 +52,7 @@ interface DatabaseContextValue {
 }
 
 // Create the context with a default value
-const DatabaseContext = createContext<DatabaseContextValue | undefined>(undefined)
+export const DatabaseContext = createContext<DatabaseContextValue | undefined>(undefined)
 
 // Provider component
 export function DatabaseProvider({ children }: { children: ReactNode }) {
@@ -77,7 +77,7 @@ export function DatabaseProvider({ children }: { children: ReactNode }) {
         setIsLoading(true)
         // Only initialize the database if we're in the browser
         if (typeof window !== "undefined") {
-          await initializeDatabase()
+          await initializeDatabase(true) // true to force reset on hard refresh
           await refreshData()
         }
         setIsInitialized(true)

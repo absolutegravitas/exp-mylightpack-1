@@ -1,14 +1,24 @@
+"use client"
+
 import { Metadata } from "next"
+import { useEffect } from "react"
 import { AppLayout } from "@/components/app-layout"
 import { MainContent } from "@/components/main-content"
 import { MenuBar } from "@/components/menu-bar"
+import { useDatabase } from "@/contexts/database-context"
 
-export const metadata: Metadata = {
-  title: "myLightPack",
-  description: "Manage your gear, pack lists and travel light for your next adventure.",
-}
+// export const metadata: Metadata = {
+//   title: "myLightPack",
+//   description: "Manage your gear, pack lists and travel light for your next adventure.",
+// }
 
 export default function HomePage() {
+  const { refreshGearItems } = useDatabase()
+
+  useEffect(() => {
+    refreshGearItems()
+  }, [])
+
   return (
     <div className="bg-background flex h-screen flex-col">
       <div className="bg-yellow-500 p-2 text-center text-yellow-900">
