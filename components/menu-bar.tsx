@@ -4,10 +4,10 @@ import { Menu as MenuIcon, User } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/ui/logo"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { AppLayout } from "./app-layout"
 import { Search } from "./search"
-import { Logo } from "@/components/ui/logo"
 
 export function MenuBar() {
   const [searchQuery, setSearchQuery] = useState("")
