@@ -11,15 +11,15 @@ export function ThemeToggle() {
 
   return (
     <div className="flex space-x-2">
-      <Button variant="ghost" size="icon" onClick={() => setTheme('light')}> 
+      <Button variant="ghost" size="icon" onClick={() => setTheme("light")}>
         <Sun className="h-[1.2rem] w-[1.2rem]" />
       </Button>
-      <Button variant="ghost" size="icon" onClick={() => setTheme('dark')}> 
+      <Button variant="ghost" size="icon" onClick={() => setTheme("dark")}>
         <Moon className="h-[1.2rem] w-[1.2rem]" />
       </Button>
-      <Button variant="ghost" size="icon" onClick={() => setTheme('system')}> 
+      <Button variant="ghost" size="icon" onClick={() => setTheme("system")}>
         <span className="sr-only">System</span>
       </Button>
     </div>
-  );
+  )
 }

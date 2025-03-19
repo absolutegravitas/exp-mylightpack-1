@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -24,7 +25,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 export function NavUser({
   user,
