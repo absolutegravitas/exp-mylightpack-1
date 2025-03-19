@@ -73,7 +73,7 @@ export function NavUser({
               <DropdownMenuItem className="#text-white rounded p-2">
                 <Link href="/#pricing">
                   <Sparkles className="#text-white size-4" />
-                  Sign Up
+                  {`Like what you see? Sign Up`}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
