@@ -81,7 +81,7 @@ export function NavUser({
             </DropdownMenuLabel> */}
             <DropdownMenuSeparator />
             <ThemeToggle />
-
+            {/* 
             <DropdownMenuGroup>
               <DropdownMenuItem className="#text-white rounded p-2">
                 <Link href="/#pricing" className="inline-flex">
@@ -89,7 +89,7 @@ export function NavUser({
                   {`Like what you see? Sign Up`}
                 </Link>
               </DropdownMenuItem>
-            </DropdownMenuGroup>
+            </DropdownMenuGroup> */}
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
