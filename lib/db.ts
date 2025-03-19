@@ -43,6 +43,13 @@ export interface PackListItem {
   notes?: string
 }
 
+export interface Kit {
+  id: string
+  name: string
+  description: string
+  gearItems: string[] // Array of GearItem IDs
+}
+
 const DB_NAME = "myLightPackDB"
 const DB_VERSION = 1
 
@@ -80,7 +87,7 @@ const initDB = (): Promise<IDBDatabase> => {
       }
 
       if (!db.objectStoreNames.contains("packLists")) {
-        // Comment out unused variable warning
+        // Commenting out unused variable to avoid lint errors
         // const packListStore = db.createObjectStore("packLists", { keyPath: "id" });
         db.createObjectStore("packLists", { keyPath: "id" })
       }
@@ -108,6 +115,10 @@ const initDB = (): Promise<IDBDatabase> => {
 
       if (!db.objectStoreNames.contains("userProfile")) {
         db.createObjectStore("userProfile", { keyPath: "id" })
+      }
+
+      if (!db.objectStoreNames.contains("kits")) {
+        db.createObjectStore("kits", { keyPath: "id" })
       }
     }
   })
@@ -171,6 +182,10 @@ const initRealDB = (): Promise<IDBDatabase> => {
         tripPlansStore.createIndex("packListId", "packListId", {
           unique: false,
         })
+      }
+
+      if (!db.objectStoreNames.contains("kits")) {
+        db.createObjectStore("kits", { keyPath: "id" })
       }
     }
   })
@@ -357,13 +372,13 @@ export default redisClient
 // Initialize the database with sample data
 export const initializeDatabase = async (forceReset = false, isRealUser: boolean = false): Promise<void> => {
   try {
-    // Comment out unused variable warning
+    // Commenting out unused variable to avoid lint errors
     // const db = await dbOperations.getDB(isRealUser);
 
     if (forceReset) {
       // Clear existing data if forceReset is true
       const db = await dbOperations.getDB(isRealUser)
-      const stores = ["gearItems", "packLists", "packListItems", "tripPlans", "userProfile"]
+      const stores = ["gearItems", "packLists", "packListItems", "tripPlans", "userProfile", "kits"]
       stores.forEach((store) => {
         const transaction = db.transaction(store, "readwrite")
         const objectStore = transaction.objectStore(store)
@@ -388,7 +403,7 @@ export const initializeDatabase = async (forceReset = false, isRealUser: boolean
     const existingGear = await dbOperations.getAllItems<GearItem>("gearItems", isRealUser)
     if (existingGear.length === 0) {
       // Import from our static data
-      const { recommendedGear, popularGear } = await import("../data/gear-items")
+      const { recommendedGear, popularGear } = await import("../components/blocks/dashboard/data/gear-items")
       const allGear = [...recommendedGear, ...popularGear]
 
       for (const gear of allGear) {
@@ -400,7 +415,7 @@ export const initializeDatabase = async (forceReset = false, isRealUser: boolean
     const existingPackLists = await dbOperations.getAllItems<PackList>("packLists", isRealUser)
     if (existingPackLists.length === 0) {
       // Import from our static data
-      const { packLists } = await import("../data/pack-lists")
+      const { packLists } = await import("../components/blocks/dashboard/data/pack-lists")
 
       for (const packList of packLists) {
         await dbOperations.addItem("packLists", packList, isRealUser)
@@ -592,6 +607,24 @@ export const tripOperations = {
   },
 }
 
+export const kitOperations = {
+  addKit: async (kit: Kit, isRealUser: boolean = false): Promise<Kit> => {
+    return await dbOperations.addItem<Kit>("kits", kit, isRealUser)
+  },
+  updateKit: async (kit: Kit, isRealUser: boolean = false): Promise<Kit> => {
+    return await dbOperations.updateItem<Kit>("kits", kit, isRealUser)
+  },
+  deleteKit: async (id: string, isRealUser: boolean = false): Promise<void> => {
+    return await dbOperations.deleteItem("kits", id, isRealUser)
+  },
+  getKit: async (id: string, isRealUser: boolean = false): Promise<Kit | null> => {
+    return await dbOperations.getItem<Kit>("kits", id, isRealUser)
+  },
+  getAllKits: async (isRealUser: boolean = false): Promise<Kit[]> => {
+    return await dbOperations.getAllItems<Kit>("kits", isRealUser)
+  },
+}
+
 export const userProfileOperations = {
   getUserProfile: async (isRealUser: boolean = false): Promise<UserProfile | null> => {
     const profiles = await dbOperations.getAllItems<UserProfile>("userProfile", isRealUser)
@@ -601,4 +634,34 @@ export const userProfileOperations = {
   updateUserProfile: async (profile: UserProfile, isRealUser: boolean = false): Promise<UserProfile> => {
     return await dbOperations.updateItem<UserProfile>("userProfile", profile, isRealUser)
   },
+}
+
+// Ensure that the functions are properly exported in db.ts
+export const getAllGearItems = async (isRealUser: boolean = false): Promise<GearItem[]> => {
+  return await dbOperations.getAllItems<GearItem>("gearItems", isRealUser)
+}
+
+export const getAllKits = async (isRealUser: boolean = false): Promise<Kit[]> => {
+  return await dbOperations.getAllItems<Kit>("kits", isRealUser)
+}
+
+export const getAllLists = async (isRealUser: boolean = false): Promise<PackList[]> => {
+  return await dbOperations.getAllItems<PackList>("packLists", isRealUser)
+}
+
+export const getPackListItems = async (
+  packListId: string,
+  isRealUser: boolean = false
+): Promise<(PackListItem & { gear: GearItem | null })[]> => {
+  const items = await dbOperations.getItemsByIndex<PackListItem>("packListItems", "packListId", packListId, isRealUser)
+
+  // For each item, get the associated gear information
+  const itemsWithGear = await Promise.all(
+    items.map(async (item) => {
+      const gear = await dbOperations.getItem<GearItem>("gearItems", item.gearItemId, isRealUser)
+      return { ...item, gear }
+    })
+  )
+
+  return itemsWithGear
 }

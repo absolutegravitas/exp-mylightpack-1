@@ -16,6 +16,7 @@ const eslintIgnore = [
   "*.config.js",
   "*.d.ts",
   "report-bundle-size.js",
+  "handoffs/",
 ]
 
 const config = typescriptEslint.config(

@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/blocks/dashboard/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,7 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Page() {
+export default function DashboardPage() {
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -44,3 +44,27 @@ export default function Page() {
     </SidebarProvider>
   )
 }
+
+// // Dashboard route for existing users
+// import { useUser } from "@clerk/clerk-react"
+// import { useEffect } from "react"
+
+// const Dashboard = () => {
+//   const { user, isLoaded, isSignedIn } = useUser()
+
+//   useEffect(() => {
+//     if (!isLoaded || !isSignedIn) {
+//       // Redirect to login if user is not authenticated
+//       window.location.href = "/login"
+//     }
+//   }, [isLoaded, isSignedIn])
+
+//   return (
+//     <div>
+//       <h1>Welcome to your Dashboard</h1>
+//       {/* Add components for managing user data and preferences */}
+//     </div>
+//   )
+// }
+
+// export default Dashboard
