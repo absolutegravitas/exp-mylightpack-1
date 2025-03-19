@@ -1,6 +1,16 @@
 "use client"
 
-import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles, User2Icon } from "lucide-react"
+import {
+  BadgeCheck,
+  Bell,
+  ChevronsUpDown,
+  CreditCard,
+  LogOut,
+  Settings2Icon,
+  SettingsIcon,
+  Sparkles,
+  User2Icon,
+} from "lucide-react"
 import Link from "next/link"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -14,6 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function NavUser({
   user,
@@ -54,7 +65,7 @@ export function NavUser({
             align="end"
             sideOffset={4}
           >
-            <DropdownMenuLabel className="p-0 font-normal">
+            {/* <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
@@ -67,12 +78,14 @@ export function NavUser({
                   <span className="truncate text-xs">{user.email}</span>
                 </div>
               </div>
-            </DropdownMenuLabel>
+            </DropdownMenuLabel> */}
             <DropdownMenuSeparator />
+            <ThemeToggle />
+
             <DropdownMenuGroup>
               <DropdownMenuItem className="#text-white rounded p-2">
-                <Link href="/#pricing">
-                  <Sparkles className="#text-white size-4" />
+                <Link href="/#pricing" className="inline-flex">
+                  <Sparkles className="#text-white mr-2 size-4" />
                   {`Like what you see? Sign Up`}
                 </Link>
               </DropdownMenuItem>
@@ -80,9 +93,10 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <BadgeCheck />
+                <Settings2Icon className="size-6" />
                 Preferences
               </DropdownMenuItem>
+
               <DropdownMenuItem>
                 <CreditCard />
                 Billing
