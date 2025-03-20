@@ -24,7 +24,7 @@ export default function LandingPage() {
       <Container className="flex flex-col items-center justify-center">
         <Hero />
       </Container>
-      <HeroParallax />
+      {/* <HeroParallax /> */}
       <Container className="flex flex-col items-center justify-center">
         <MainFeatures />
         <MajorFeatures />
