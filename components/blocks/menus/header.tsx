@@ -14,7 +14,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
-function Header1() {
+export default function Header() {
   const navigationItems = [
     {
       title: "Home",
@@ -134,5 +134,3 @@ function Header1() {
     </header>
   )
 }
-
-export { Header1 }
