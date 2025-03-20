@@ -5,13 +5,11 @@
 @import "tailwindcss";
 @variant dark (&:is(.dark *));
 
-/* @config '../tailwind.config.js'; */
-
 @theme {
-  /* Define a custom property for your animation */
+  /* Caret animation for input fields */
   --animate-caret-blink: caret-blink 1.25s ease-out infinite;
 
-  /* Define your keyframes directly */
+  /* Define keyframes */
   @keyframes caret-blink {
     0%,
     70%,
@@ -24,6 +22,7 @@
     }
   }
 
+  /* Main color variables - hiking theme */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -33,31 +32,38 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
-  --color-primary: hsl(var(--primary));
+  --color-primary: hsl(var(--primary)); /* Forest green - main branding */
   --color-primary-foreground: hsl(var(--primary-foreground));
 
-  --color-secondary: hsl(var(--secondary));
+  --color-secondary: hsl(var(--secondary)); /* Earth tones - secondary elements */
   --color-secondary-foreground: hsl(var(--secondary-foreground));
 
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
 
-  --color-accent: hsl(var(--accent));
+  --color-accent: hsl(var(--accent)); /* Sage green - accents (replacing Mountain blue) */
   --color-accent-foreground: hsl(var(--accent-foreground));
 
-  --color-destructive: hsl(var(--destructive));
+  --color-destructive: hsl(var(--destructive)); /* Alert/danger */
   --color-destructive-foreground: hsl(var(--destructive-foreground));
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
+  /* Link specific colors */
+  --color-link: hsl(var(--link));
+  --color-link-hover: hsl(var(--link-hover));
+  --color-link-visited: hsl(var(--link-visited));
 
+  /* Chart colors for weight visualization and analysis */
+  --color-chart-1: hsl(var(--chart-1)); /* Lightweight items */
+  --color-chart-2: hsl(var(--chart-2)); /* Medium weight items */
+  --color-chart-3: hsl(var(--chart-3)); /* Heavy items */
+  --color-chart-4: hsl(var(--chart-4)); /* Ultralight items */
+  --color-chart-5: hsl(var(--chart-5)); /* Luxury items */
+
+  /* Sidebar for gear lists and categories */
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
@@ -67,18 +73,14 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
+  /* Border radius for a slightly rugged but clean look */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 }
 
 /*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
+  Compatibility styles for Tailwind CSS v4's default border color change
 */
 @layer base {
   *,
@@ -92,83 +94,138 @@
 
 @layer utilities {
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif; /* Clean, readable font */
   }
 
   .animate-caret-blink {
     animation: var(--animate-caret-blink);
   }
+
+  /* Weight category classes for quick visual identification */
+  .weight-ultralight {
+    @apply bg-[#afd4aa] text-[#1a3a1a];
+  }
+
+  .weight-lightweight {
+    @apply bg-[#95d5b2] text-[#081c15];
+  }
+
+  .weight-standard {
+    @apply bg-[#e9c46a] text-[#3d405b];
+  }
+
+  .weight-heavy {
+    @apply bg-[#f4a261] text-[#33272a];
+  }
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Light mode - nature-inspired colors */
+    --background: 50 33% 98%; /* Off-white with slight warm tint #faf8f1 */
+    --foreground: 120 15% 15%; /* Dark green-gray for text #283a28 */
+
+    --card: 50 30% 98%; /* Slightly warmer than background #faf7f0 */
+    --card-foreground: 120 15% 15%; /* Same as main text #283a28 */
+
+    --popover: 0 0% 100%; /* Pure white #ffffff */
+    --popover-foreground: 120 15% 15%; /* Same as main text #283a28 */
+
+    --primary: 150 30% 30%; /* Forest green #2d6a4f */
+    --primary-foreground: 50 33% 98%; /* Off-white #faf8f1 */
+
+    --secondary: 36 25% 85%; /* Soft sand/beige #e6dcc6 */
+    --secondary-foreground: 90 15% 30%; /* Olive green #4d5e3c (replacing dark brown) */
+
+    --muted: 120 10% 93%; /* Pale green-gray #eef0ee */
+    --muted-foreground: 120 8% 45%; /* Medium green-gray #6e7970 */
+
+    --accent: 120 25% 50%; /* Sage green #6b9a6b (replacing Mountain blue) */
+    --accent-foreground: 0 0% 100%; /* White #ffffff */
+
+    --destructive: 0 84% 60%; /* Standard red #ef4444 */
+    --destructive-foreground: 0 0% 100%; /* White #ffffff */
+
+    --border: 120 15% 85%; /* Light green-gray border #dae2da */
+    --input: 120 15% 85%; /* Same as border #dae2da */
+    --ring: 150 30% 40%; /* Slightly lighter forest green #3b8c68 */
+
+    /* Link colors - forest green theme */
+    --link: 150 40% 30%; /* Forest green #296a45 */
+    --link-hover: 150 50% 25%; /* Deeper forest green #1e5137 */
+    --link-visited: 150 25% 35%; /* Muted forest green #467a5a */
+
+    /* Chart colors for different gear categories */
+    --chart-1: 95 50% 60%; /* Leaf green #99cc66 */
+    --chart-2: 173 58% 39%; /* Pine green #1d8a83 */
+    --chart-3: 60 52% 48%; /* Olive green #a3ad48 (replacing Earth brown) */
+    --chart-4: 130 45% 55%; /* Mint green #5ab378 (replacing Sky blue) */
+    --chart-5: 27 70% 58%; /* Trail orange #d89442 */
+
+    --radius: 0.4rem; /* Slightly less rounded for outdoor gear aesthetic */
+
+    /* Sidebar for navigation and gear lists */
+    --sidebar-background: 120 15% 97%; /* Very light green tint #f5f6f5 */
+    --sidebar-foreground: 120 15% 30%; /* Medium-dark green #4d5e4d */
+    --sidebar-primary: 150 30% 30%; /* Forest green #2d6a4f */
+    --sidebar-primary-foreground: 0 0% 100%; /* White #ffffff */
+    --sidebar-accent: 75 25% 90%; /* Very light sage #eff0e5 (replacing beige) */
+    --sidebar-accent-foreground: 90 15% 30%; /* Olive green #4d5e3c (replacing dark brown) */
+    --sidebar-border: 120 10% 90%; /* Light green-gray #e5e8e5 */
+    --sidebar-ring: 120 25% 50%; /* Sage green #6b9a6b (replacing Mountain blue) */
   }
+
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode - night hiking colors */
+    --background: 115 20% 12%; /* Dark green-gray #1c2a1c (replacing blue-gray) */
+    --foreground: 50 15% 93%; /* Off-white with warm tint #eeece5 */
+
+    --card: 115 20% 15%; /* Slightly lighter than background #232f23 */
+    --card-foreground: 50 15% 93%; /* Same as main text #eeece5 */
+
+    --popover: 115 20% 12%; /* Same as background #1c2a1c */
+    --popover-foreground: 50 15% 93%; /* Same as main text #eeece5 */
+
+    --primary: 150 25% 40%; /* Muted forest green #3d8066 */
+    --primary-foreground: 0 0% 100%; /* White #ffffff */
+
+    --secondary: 75 15% 25%; /* Dark sage #34402e (replacing Dark earth tone) */
+    --secondary-foreground: 50 15% 93%; /* Off-white #eeece5 */
+
+    --muted: 115 20% 25%; /* Dark green-gray muted #334633 */
+    --muted-foreground: 115 15% 65%; /* Medium green-gray #99aa99 */
+
+    --accent: 120 25% 35%; /* Subdued sage green #4d704d (replacing mountain blue) */
+    --accent-foreground: 0 0% 100%; /* White #ffffff */
+
+    --destructive: 0 84% 60%; /* Standard red #ef4444 */
+    --destructive-foreground: 0 0% 98%; /* Off-white #fafafa */
+
+    --border: 115 20% 25%; /* Dark green-gray border #334633 */
+    --input: 115 20% 25%; /* Same as border #334633 */
+    --ring: 150 25% 45%; /* Muted forest green highlight #3d8066 */
+
+    /* Link colors - dark mode */
+    --link: 150 35% 50%; /* Brighter forest green in dark mode #4ca378 */
+    --link-hover: 150 45% 40%; /* Deeper forest green hover #3d8066 */
+    --link-visited: 150 20% 45%; /* Muted forest green #5e8c70 */
+
+    /* Chart colors - darker but still identifiable */
+    --chart-1: 95 40% 40%; /* Dark leaf green #547d33 */
+    --chart-2: 173 40% 30%; /* Dark pine green #1d5c57 */
+    --chart-3: 60 40% 35%; /* Dark olive green #666d33 (replacing dark earth brown) */
+    --chart-4: 130 40% 35%; /* Dark mint green #336d47 (replacing dark sky blue) */
+    --chart-5: 27 50% 40%; /* Dark trail orange #995c1d */
+
+    /* Sidebar - darker version */
+    --sidebar-background: 115 20% 10%; /* Very dark green-gray #172017 */
+    --sidebar-foreground: 50 10% 80%; /* Light warm gray #ccc9c2 */
+    --sidebar-primary: 150 25% 40%; /* Muted forest green #3d8066 */
+    --sidebar-primary-foreground: 0 0% 100%; /* White #ffffff */
+    --sidebar-accent: 115 20% 20%; /* Dark green-gray accent #2c3d2c */
+    --sidebar-accent-foreground: 50 10% 80%; /* Light warm gray #ccc9c2 */
+    --sidebar-border: 115 20% 20%; /* Dark green-gray border #2c3d2c */
+    --sidebar-ring: 120 25% 40%; /* Dark sage green highlight #4d704d */
   }
 }
 
@@ -178,6 +235,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Override default link styles */
+  a {
+    @apply text-[#296a45] transition-colors visited:text-[#467a5a] hover:text-[#1e5137];
+  }
+
+  .dark a {
+    @apply text-[#4ca378] transition-colors visited:text-[#5e8c70] hover:text-[#3d8066];
   }
 }
 
@@ -190,26 +256,27 @@
   }
 }
 
+/* Additional sidebar direct variable definitions */
 :root {
-  --sidebar: hsl(0 0% 98%);
-  --sidebar-foreground: hsl(240 5.3% 26.1%);
-  --sidebar-primary: hsl(240 5.9% 10%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(240 4.8% 95.9%);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --sidebar: hsl(120 15% 97%);
+  --sidebar-foreground: hsl(120 15% 30%);
+  --sidebar-primary: hsl(150 30% 30%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(75 25% 90%);
+  --sidebar-accent-foreground: hsl(90 15% 30%);
+  --sidebar-border: hsl(120 10% 90%);
+  --sidebar-ring: hsl(120 25% 50%);
 }
 
 .dark {
-  --sidebar: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar: hsl(115 20% 10%);
+  --sidebar-foreground: hsl(50 10% 80%);
+  --sidebar-primary: hsl(150 25% 40%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --sidebar-accent: hsl(115 20% 20%);
+  --sidebar-accent-foreground: hsl(50 10% 80%);
+  --sidebar-border: hsl(115 20% 20%);
+  --sidebar-ring: hsl(120 25% 40%);
 }
 
 @theme inline {
@@ -221,4 +288,55 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Weight utility classes for pack management */
+@layer components {
+  /* Button styles for weight management actions */
+  .btn-add-item {
+    @apply rounded bg-[#3d8066] px-4 py-2 text-white transition-colors hover:bg-[#2d6a4f];
+  }
+
+  .btn-remove-item {
+    @apply rounded bg-[#ef4444] px-4 py-2 text-white transition-colors hover:bg-[#dc2626];
+  }
+
+  .btn-optimize {
+    @apply rounded bg-[#6b9a6b] px-4 py-2 text-white transition-colors hover:bg-[#5a875a];
+  }
+
+  /* Weight category badges */
+  .badge-ultralight {
+    @apply rounded bg-[#afd4aa] px-2 py-1 text-xs font-medium text-[#1a3a1a];
+  }
+
+  .badge-lightweight {
+    @apply rounded bg-[#95d5b2] px-2 py-1 text-xs font-medium text-[#081c15];
+  }
+
+  .badge-standard {
+    @apply rounded bg-[#e9c46a] px-2 py-1 text-xs font-medium text-[#3d405b];
+  }
+
+  .badge-heavy {
+    @apply rounded bg-[#f4a261] px-2 py-1 text-xs font-medium text-[#33272a];
+  }
+
+  /* Link component styles */
+  .link {
+    @apply text-[#296a45] underline-offset-2 transition-colors visited:text-[#467a5a] hover:text-[#1e5137];
+  }
+
+  .dark .link {
+    @apply text-[#4ca378] visited:text-[#5e8c70] hover:text-[#3d8066];
+  }
+
+  /* Special link styles */
+  .link-trail {
+    @apply font-medium text-[#296a45] no-underline hover:text-[#1e5137] hover:underline;
+  }
+
+  .link-trail-external {
+    @apply font-medium text-[#296a45] after:ml-1 after:inline-block after:content-['_↗'] hover:text-[#1e5137];
+  }
 }
