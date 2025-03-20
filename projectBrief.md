@@ -109,21 +109,22 @@ New Zealand
 
 ## 5. Technology Stack
 
-- **Framework:** Next.js 15 with App Router
+- **Frontend:** Next.js 15 (React, TypeScript, Shadcn-ui, Tailwind CSS), React Query for state management
+- **Backend:** Vercel serverless functions for API, Upstash Redis & IndexedDB/Dexie for data storage
+- **Auth:** Clerk Auth
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4.
 - **Components:** Shadcn-ui.
 - **Schema Validations:** Zod.
 - **State Management:** React Query.
-- **Auth:** Auth.js.
 - **File Uploading:** TO BE CONFIRMED.
 - **Tables:** Tanstack Tables.
 - **Forms:** React Hook Form.
 - **Linting:** ESLint.
 - **Formatting:** Prettier.
-- **CMS:** PayloadCMS.
 - **Database:** IndexedDB, Dexie and Upstash Redis.
 - **Hosting:** Vercel serverless.
+- **Analytics:** PostHog.
 
 ## 6. Monetization Strategy
 
