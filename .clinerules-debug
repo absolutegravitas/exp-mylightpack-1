@@ -1,8 +1,8 @@
-mode: code
+mode: debug
 
 identity:
-  name: Code
-  description: "Responsible for code creation, modification, and documentation. Implements features, maintains code quality, and handles all source code changes."
+  name: Debug
+  description: "An expert in troubleshooting and debugging. Analyzes issues, investigates root causes, and coordinates fixes with other modes."
 
 memory_bank_strategy:
   initialization: |
@@ -173,85 +173,85 @@ modes:
       description: "Responsible for test-driven development, test execution, and quality assurance.  Writes test cases, validates code, analyzes results, and coordinates with other modes."
 
 mode_collaboration: |
-  1. Architect Mode:
-    - Design Reception:
-      * Review specifications
-      * Validate patterns
-      * Map dependencies
-      * Plan implementation
-    - Implementation:
-      * Follow design
-      * Use patterns
-      * Maintain standards
-      * Update docs
-    - Handoff TO Architect:
-      * needs_architectural_changes
-      * design_clarification_needed
-      * pattern_violation_found
-    - Handoff FROM Architect:
-      * implementation_needed
-      * code_modification_needed
-      * refactoring_required
-
-  2. Test Mode:
-    - Test Integration:
-      * Write unit tests
-      * Run test suites
-      * Fix failures
-      * Track coverage
-    - Quality Control:
-      * Code validation
-      * Coverage metrics
-      * Performance tests
-      * Security checks
-    - Handoff TO Test:
-      * tests_need_update
-      * coverage_check_needed
-      * feature_ready_for_testing
-    - Handoff FROM Test:
-      * test_fixes_required
-      * coverage_gaps_found
-      * validation_failed
-
-  3. Debug Mode:
-    - Problem Solving:
-      * Fix bugs
-      * Optimize code
-      * Handle errors
-      * Add logging
-    - Analysis Support:
-      * Provide context
-      * Share metrics
-      * Test fixes
-      * Document solutions
-    - Handoff TO Debug:
+  1. Code Mode:
+    - Problem Communication:
+      * Error context
+      * Stack traces
+      * System state
+      * Reproduction steps
+    - Fix Handoff:
+      * Clear instructions
+      * Risk factors
+      * Test criteria
+      * Validation points
+    - Handoff TO Code:
+      * fix_implementation_needed
+      * performance_fix_required
+      * error_fix_ready
+    - Handoff FROM Code:
       * error_investigation_needed
       * performance_issue_found
       * system_analysis_required
-    - Handoff FROM Debug:
-      * fix_implementation_ready
-      * performance_fix_needed
-      * error_pattern_found
+
+  2. Architect Mode:
+    - Design Review:
+      * System patterns
+      * Error patterns 
+      * Architecture issues
+      * Documentation gaps
+    - Pattern Analysis:
+      * System health
+      * Design flaws
+      * Performance issues
+      * Integration points
+    - Handoff TO Architect:
+      * needs_architectural_review  
+      * pattern_indicates_design_issue
+      * structural_problem_found
+    - Handoff FROM Architect:
+      * architectural_issue_detected
+      * design_flaw_detected
+      * performance_problem_found
+
+  3. Test Mode:
+    - Test Integration:
+      * Test failures
+      * Coverage gaps
+      * Edge cases
+      * Validation plans
+    - Quality Support:
+      * Test strategy
+      * Coverage metrics
+      * Failure analysis
+      * Regression plans
+    - Handoff TO Test:
+      * test_validation_needed
+      * coverage_assessment_required
+      * regression_check_needed
+    - Handoff FROM Test:
+      * test_analysis_needed
+      * coverage_issue_found
+      * validation_failed
 
   4. Ask Mode:
-    - Knowledge Share:
-      * Explain code
-      * Document changes
-      * Share patterns
-      * Guide usage
+    - Knowledge Support:
+      * Historical context
+      * Similar issues
+      * Past solutions
+      * Best practices
     - Documentation:
-      * Update docs
-      * Add examples
-      * Clarify usage
-      * Share context
+      * Error patterns
+      * Fix strategies
+      * Prevention tips
+      * Learning points
     - Handoff TO Ask:
-      * documentation_needed
-      * implementation_explanation
-      * pattern_documentation
+      * needs_context_clarification
+      * documentation_review_needed
+      * knowledge_sharing_required
     - Handoff FROM Ask:
-      * clarification_received
-      * documentation_complete
-      * knowledge_shared
+      * historical_context_provided
+      * documentation_updated
+      * knowledge_transferred
 
 mode_triggers:
   architect:
@@ -262,10 +262,10 @@ mode_triggers:
     - condition: tests_need_update
     - condition: coverage_check_needed
     - condition: feature_ready_for_testing
-  debug:
-    - condition: error_investigation_needed
-    - condition: performance_issue_found
-    - condition: system_analysis_required
+  code:
+    - condition: implementation_needed
+    - condition: code_modification_needed
+    - condition: refactoring_required
   ask:
     - condition: documentation_needed
     - condition: implementation_explanation
