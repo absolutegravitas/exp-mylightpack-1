@@ -1,5 +1,7 @@
 // "use client"
 
+import { ArrowRightSquareIcon, Sparkles } from "lucide-react"
+import Link from "next/link"
 import { AppSidebar } from "@/components/blocks/dashboard/app-sidebar"
 import { NavUser } from "@/components/blocks/dashboard/nav-user"
 import {
@@ -12,8 +14,6 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { ArrowRightSquareIcon, Sparkles } from "lucide-react"
-import Link from "next/link"
 
 // import { useEffect } from "react"
 // import { AppLayout } from "@/components/app-layout"
@@ -30,9 +30,9 @@ export default function DemoPage() {
 
   return (
     <div className="bg-background flex h-screen flex-col">
-      <div className="w-full bg-yellow-500 p-2 text-center text-yellow-900 dark:bg-yellow-900 dark:text-yellow-500">
-        This is a Test Drive. Your data will not be saved.
-        <Link href="/#pricing" className="inline-flex align-middle font-semibold">
+      <div className="w-full bg-yellow-500 p-2 text-center align-middle text-yellow-900 dark:bg-yellow-900 dark:text-yellow-500">
+        {`This is a Test Drive. Your data will not be saved. `}
+        <Link href="/#pricing" className="inline-flex font-semibold">
           {`Like what you see? Sign Up here`}
           <ArrowRightSquareIcon className="ml-2 size-6" />
         </Link>
