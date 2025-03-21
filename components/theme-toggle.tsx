@@ -1,6 +1,6 @@
 "use client"
 
-import { Moon, Sun } from "lucide-react"
+import { LaptopMinimalIcon, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import * as React from "react"
 
@@ -18,7 +18,7 @@ export function ThemeToggle() {
         <Moon className="h-[1.2rem] w-[1.2rem]" />
       </Button>
       <Button variant="ghost" size="icon" onClick={() => setTheme("system")}>
-        <span className="sr-only">System</span>
+        <LaptopMinimalIcon className="h-[1.2rem] w-[1.2rem]" />
       </Button>
     </div>
   )

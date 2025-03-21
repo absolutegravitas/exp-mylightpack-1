@@ -1,5 +1,6 @@
 "use client"
 
+import { Separator } from "@radix-ui/react-separator"
 import { Folder, Forward, type LucideIcon, MoreHorizontal, Trash2 } from "lucide-react"
 
 import Link from "next/link"
@@ -33,7 +34,8 @@ export function NavProjects({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      {/* <SidebarGroupLabel>Projects</SidebarGroupLabel> */}
+      <Separator orientation="horizontal" className="bg-border -mx-1 my-4 h-px w-3/4" />
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
