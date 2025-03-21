@@ -53,9 +53,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <ReactScan />
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <PostHogProvider>{children}</PostHogProvider>
-          </ThemeProvider>
+          <PostHogProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+              {children}
+            </ThemeProvider>
+          </PostHogProvider>
         </body>
       </html>
     </ClerkProvider>
