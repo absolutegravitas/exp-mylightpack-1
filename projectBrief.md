@@ -97,15 +97,17 @@ New Zealand
 
 ## 4. Core Features
 
-- **Gear Inventory Management:** Track individual gear items with details like weight, brand, price, season rating and usage.
-- **Gear List Creation and Management:** Create and manage gear lists and then use them for specific trips.
-- **Weight Calculation:** Automatically calculate the total weight of gear lists.
-- **Sharing and Collaboration:**
-  - Share lists for comment review by other users within the platform.
-  - Publicly share lists on social media.
-  - Create and manage groups hikes.
-  - Create group lists to record shared and individual items between group members.
-- **Crowdsourced Feature Feedback:** Provide users with the abilty to raise future features to add to the app and vote on features. Ability to comment on said features for discussion.
+- **Gear Management:** Track individual gear items with details like photos, weight, brand, price, season rating and usage.
+- **Kit Management:** Create and manage kits based on one or more gear items. Add details about the kit like photos, combined weight from gear items, season.
+- **Pack List Management:** Create and manage pack lists comprised of one or more kits and one or more gear items. Show kits and gear items in the pack list and an interactive visual chart to show weight distribution by category, type, tags and other variables.
+- **Group Management:** Create and manage groups of users. Add details about the group like name, description, season, and members. Create group lists to record shared and individual items between group members.
+- **Kit and List Sharing and Collaboration:**
+  - Share kits and lists for comment by other users within the platform.
+  - Share kits and lists to "public library" for other users to import into their profile
+  - Publicly share kits and lists on social media.
+- **Crowdsourced Feature Requests:** Provide users with the ability to raise future features to add to the app and vote on features. Ability to comment on said features for discussion.
+- **User Profiles:** Allow users to create and manage their profiles, including unit of measurement, sort / filter preferences, custom tags and categories, language, billing, data export, import.
+- **Notifications:** Send notifications to users when their kits and lists are commented on, shared, or voted on.
 
 ## 5. Technology Stack
 
